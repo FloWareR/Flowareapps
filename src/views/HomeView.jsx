@@ -168,30 +168,43 @@ export default function HomeView({ onNavigate, onSelectProject }) {
           <div
             style={{
               flex: '1 1 320px',
-              maxWidth: '460px',
+              maxWidth: '520px',
               display: 'flex',
               flexDirection: 'column',
               gap: '20px'
             }}
           >
-            <p
-              style={{
-                margin: 0,
-                color: 'var(--theme-muted)',
-                fontSize: '16px',
-                lineHeight: 1.55
-              }}
-            >
-              I build{' '}
-              <em style={{ color: 'var(--theme-fg)', fontStyle: 'normal', fontWeight: 500 }}>
-                playable worlds
-              </em>{' '}
-              and{' '}
-              <em style={{ color: 'var(--theme-fg)', fontStyle: 'normal', fontWeight: 500 }}>
-                solid software architectures
-              </em>
-              : from grid-based RPG mechanics in Unity (C#) and PC porting, to REST microservices in Go, enterprise web applications with React, and scalable cloud deployments on Google Cloud (GCP).
-            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <p
+                style={{
+                  margin: 0,
+                  color: 'var(--theme-muted)',
+                  fontSize: '16px',
+                  lineHeight: 1.55
+                }}
+              >
+                I build{' '}
+                <em style={{ color: 'var(--theme-fg)', fontStyle: 'normal', fontWeight: 500 }}>
+                  games
+                </em>
+                ,{' '}
+                <em style={{ color: 'var(--theme-fg)', fontStyle: 'normal', fontWeight: 500 }}>
+                  web applications
+                </em>
+                , and the systems that power them. I’m a fullstack and game developer, working across gameplay programming, backend architecture, and frontend development.
+              </p>
+
+              <p
+                style={{
+                  margin: 0,
+                  color: 'var(--theme-muted)',
+                  fontSize: '15px',
+                  lineHeight: 1.55
+                }}
+              >
+                My stack includes C#, Unity, C, Godot, Go, JavaScript, and React, with experience building RPG mechanics, porting games to PC, developing REST APIs and microservices, and deploying scalable applications on Google Cloud.
+              </p>
+            </div>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               <a

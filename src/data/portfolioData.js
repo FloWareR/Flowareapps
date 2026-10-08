@@ -3,7 +3,7 @@ export const PERSONAL_INFO = {
   shortName: 'Rafael Flores',
   title: 'Game Dev & Full-stack',
   heroPreTitle: 'Rafael Flores Galvan — Fullstack Developer (React · Go · Game Dev)',
-  bio: 'I build playable worlds and solid software architectures: from grid-based RPG mechanics in Unity (C#) and PC porting, to high-performance REST APIs in Go, enterprise web applications with React, and scalable cloud deployments on Google Cloud (GCP).',
+  bio: 'I build games, web applications, and the systems that power them. I’m a fullstack and game developer, working across gameplay programming, backend architecture, and frontend development.\n\nMy stack includes C#, Unity, C, Godot, Go, JavaScript, and React, with experience building RPG mechanics, porting games to PC, developing REST APIs and microservices, and deploying scalable applications on Google Cloud.',
   aboutBio: "Hi! I'm Rafael, a Fullstack Developer and Game Developer based in Guadalajara, Mexico. Experience in Unity (C#) for mobile and PC, REST APIs in Go, enterprise applications with React, TypeScript, and Java Spring Boot, and cloud infrastructure on Google Cloud (GCP).",
   experienceTotal: '2 years',
   email: 'rfloresg@flowareapps.com',
