@@ -175,35 +175,19 @@ export default function HomeView({ onNavigate, onSelectProject }) {
             }}
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <p
-                style={{
-                  margin: 0,
-                  color: 'var(--theme-muted)',
-                  fontSize: '16px',
-                  lineHeight: 1.55
-                }}
-              >
-                I build{' '}
-                <em style={{ color: 'var(--theme-fg)', fontStyle: 'normal', fontWeight: 500 }}>
-                  games
-                </em>
-                ,{' '}
-                <em style={{ color: 'var(--theme-fg)', fontStyle: 'normal', fontWeight: 500 }}>
-                  web applications
-                </em>
-                , and the systems that power them. I’m a fullstack and game developer, working across gameplay programming, backend architecture, and frontend development.
-              </p>
-
-              <p
-                style={{
-                  margin: 0,
-                  color: 'var(--theme-muted)',
-                  fontSize: '15px',
-                  lineHeight: 1.55
-                }}
-              >
-                My stack includes C#, Unity, C, Godot, Go, JavaScript, and React, with experience building RPG mechanics, porting games to PC, developing REST APIs and microservices, and deploying scalable applications on Google Cloud.
-              </p>
+              {PERSONAL_INFO.bio.split('\n\n').map((paragraph, idx) => (
+                <p
+                  key={idx}
+                  style={{
+                    margin: 0,
+                    color: 'var(--theme-muted)',
+                    fontSize: idx === 0 ? '16px' : '15px',
+                    lineHeight: 1.55
+                  }}
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
@@ -483,7 +467,7 @@ export default function HomeView({ onNavigate, onSelectProject }) {
           >
             Hi! I'm Rafael Flores,{' '}
             <strong style={{ color: 'var(--theme-fg)', fontWeight: 500 }}>
-              Fullstack &amp; Game Developer
+              Jr. Fullstack &amp; Game Developer
             </strong>{' '}
             based in Guadalajara, Mexico.{' '}
             <strong style={{ color: 'var(--theme-fg)', fontWeight: 500 }}>
