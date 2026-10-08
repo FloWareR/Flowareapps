@@ -155,23 +155,7 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
             />
           )}
 
-          <span
-            style={{
-              position: 'relative',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '12px',
-              color: 'var(--theme-muted)',
-              background: 'var(--theme-bg)',
-              padding: '6px 12px',
-              borderRadius: '6px',
-              border: '1px solid var(--theme-line)',
-              zIndex: 2
-            }}
-          >
-            {currentProject.coverText || '[GAMEPLAY · 16:9 · DEMO OR VIDEO]'}
-          </span>
-
-          <div style={{ position: 'relative', zIndex: 2, display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <div style={{ position: 'relative', zIndex: 2, display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: 'auto' }}>
             {details.demoUrl && (
               <a
                 href={details.demoUrl}
@@ -489,21 +473,6 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
                   }}
                 />
               )}
-              <span
-                style={{
-                  position: 'relative',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '11px',
-                  color: 'var(--theme-muted)',
-                  background: 'var(--theme-bg)',
-                  padding: '4px 8px',
-                  borderRadius: '6px',
-                  border: '1px solid var(--theme-line)',
-                  zIndex: 2
-                }}
-              >
-                {img.label}
-              </span>
             </div>
           ))}
         </section>

@@ -83,6 +83,79 @@ button {
   );
 }
 
+/* Featured Projects Carousel - Unified Card Sizing */
+.carousel-card {
+  display: flex;
+  flex-direction: row;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--theme-line);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  height: 380px;
+  min-height: 380px;
+}
+
+.carousel-card-media {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex: 0 0 44%;
+  height: 100%;
+}
+
+.carousel-card-info {
+  flex: 1 1 0%;
+  min-width: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.carousel-card-blurb {
+  margin: 0;
+  color: var(--theme-muted);
+  font-size: 14px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 680px) {
+  .carousel-card {
+    flex-direction: column;
+    height: 550px;
+    min-height: 550px;
+  }
+
+  .carousel-card-media {
+    flex: 0 0 180px;
+    height: 180px;
+    width: 100%;
+  }
+
+  .carousel-card-info {
+    flex: 1 1 auto;
+    padding: 18px 16px;
+    gap: 10px;
+  }
+
+  .carousel-card-blurb {
+    font-size: 13px;
+    line-height: 1.45;
+    -webkit-line-clamp: 4;
+  }
+}
+
+
 /* Interactive transitions */
 .transition-colors-theme {
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;

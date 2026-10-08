@@ -260,22 +260,6 @@ export default function ProjectsView({ onNavigate, onSelectProject }) {
                   >
                     {p.cat}
                   </span>
-
-                  <span
-                    style={{
-                      position: 'relative',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '11px',
-                      color: 'var(--theme-muted)',
-                      background: 'var(--theme-bg)',
-                      padding: '4px 8px',
-                      borderRadius: '6px',
-                      border: '1px solid var(--theme-line)',
-                      zIndex: 2
-                    }}
-                  >
-                    {p.coverText}
-                  </span>
                 </div>
 
                 {/* Info & Action button */}

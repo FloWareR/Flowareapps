@@ -141,7 +141,7 @@ export const TOOLS = [
     badge: 'Un',
     name: 'Unity (3D / 2D)',
     description: 'Main engine · C# gameplay systems, mobile & PC',
-    isAccent: true
+    isAccent: false
   },
   {
     id: 'csharp',
@@ -204,7 +204,7 @@ export const TOOLS = [
     badge: 'AI',
     name: 'LLMs & AI Agents',
     description: 'Antigravity, Codex & Claude workflows',
-    isAccent: true
+    isAccent: false
   }
 ];
 
@@ -219,7 +219,6 @@ export const PROJECTS = [
     kind: '2.5D Grid Puzzle · Unity · PC & Mobile · 2026',
     blurb: 'Reshape the grid, adapt to modifiers, and engineer the perfect autonomous run in this 2.5D puzzle experience.',
     stack: 'Unity / C# / 2.5D Grid / Multiplatform',
-    coverText: '[SCREENSHOT · ARGO IN DELIVERY PROTOCOL]',
     image: '/assets/argo.png',
     demoUrl: 'https://floware.itch.io/argo-in-dp',
     featured: true,
@@ -257,9 +256,9 @@ export const PROJECTS = [
         }
       ],
       gallery: [
-        { src: '/assets/argo_gameplay.png', label: '[SCREENSHOT · GAMEPLAY]', title: 'Autonomous Delivery Simulation' },
-        { src: '/assets/argo_edit.png', label: '[SCREENSHOT · EDIT MODE]', title: 'Level & Grid Path Editing' },
-        { src: '/assets/argo_run.png', label: '[SCREENSHOT · MODIFIERS]', title: 'Perk Modifiers & Constraints' }
+        { src: '/assets/argo_gameplay.png', title: 'Autonomous Delivery Simulation' },
+        { src: '/assets/argo_edit.png', title: 'Level & Grid Path Editing' },
+        { src: '/assets/argo_run.png', title: 'Perk Modifiers & Constraints' }
       ],
       results: [
         { metric: 'v0.3.6', label: 'playable alpha release', isAccent: true },
@@ -279,7 +278,6 @@ export const PROJECTS = [
     kind: '2D Top-down Shooter · Unity · 2023',
     blurb: 'Frantic 2D top-down shooter built in Unity, featuring aquatic enemy hordes and modular weapon progression.',
     stack: 'Unity 2022 / C# / Aseprite',
-    coverText: '[SCREENSHOT · FISH FLEX]',
     image: '/assets/fishflex.png',
     demoUrl: 'https://floware.itch.io/fish-flex',
     featured: true,
@@ -316,7 +314,7 @@ export const PROJECTS = [
         }
       ],
       gallery: [
-        { src: '/assets/fishflex.png', label: '[SCREENSHOT · GAMEPLAY]', title: 'Intense Seabed Combat' }
+        { src: '/assets/fishflex.png', title: 'Intense Seabed Combat' }
       ],
       results: [
         { metric: '2.5k+', label: 'plays on itch.io', isAccent: true },
@@ -335,7 +333,6 @@ export const PROJECTS = [
     kind: '2.5D Combat Racing · Unity · 2024',
     blurb: 'Prehistoric 2.5D combat racer created for GameJamPlus 2024/2025: race, use power-ups, and grab meat before your rival!',
     stack: 'Unity / C# / 2.5D Physics / Game Jam',
-    coverText: '[SCREENSHOT · PRIMAL RACE]',
     image: '/assets/primal_race.png',
     demoUrl: 'https://juanf4r-dev.itch.io/gamejam-plus-2024',
     featured: true,
@@ -372,7 +369,7 @@ export const PROJECTS = [
         }
       ],
       gallery: [
-        { src: '/assets/primal_race.png', label: '[SCREENSHOT · PRIMAL RACE]', title: 'Prehistoric Circuit & Meat Duel' }
+        { src: '/assets/primal_race.png', title: 'Prehistoric Circuit & Meat Duel' }
       ],
       results: [
         { metric: 'GJ+ 24/25', label: 'official competition entry', isAccent: true },
@@ -392,7 +389,6 @@ export const PROJECTS = [
     kind: '2D Platformer · Unity 6 · 2025',
     blurb: '2D platformer crafted for Global Game Jam 2025: shoot bubbles to trap foes, clean the villagers, and float to new heights.',
     stack: 'Unity 6 / C# / 2D Physics',
-    coverText: '[SCREENSHOT · BUBBLEGUN]',
     image: '/assets/bubblegun.png',
     demoUrl: 'https://juan-pablo-sr.itch.io/bubble-gun',
     featured: true,
@@ -429,7 +425,7 @@ export const PROJECTS = [
         }
       ],
       gallery: [
-        { src: '/assets/bubblegun.png', label: '[SCREENSHOT · LEVEL 1]', title: 'Floating Platforms & Bubbles' }
+        { src: '/assets/bubblegun.png', title: 'Floating Platforms & Bubbles' }
       ],
       results: [
         { metric: 'GGJ 25', label: 'official on-time submission', isAccent: true },
@@ -448,7 +444,6 @@ export const PROJECTS = [
     kind: 'Risk of Rain 2 Mod · C# + R2API · 2025',
     blurb: 'Active expansion mod for Risk of Rain 2 introducing 7 new custom items, 1 elite monster type, and new status effects.',
     stack: 'C# / R2API / BepInEx / Unity',
-    coverText: '[SCREENSHOT · RISK OF DEATH]',
     image: '/assets/rod.png',
     sourceUrl: 'https://github.com/FloWareR/RiskofDeath',
     featured: true,
@@ -479,7 +474,7 @@ export const PROJECTS = [
         }
       ],
       gallery: [
-        { src: '/assets/rod.png', label: '[SCREENSHOT · MOD]', title: 'Items Registered in the Game Logbook' }
+        { src: '/assets/rod.png', title: 'Items Registered in the Game Logbook' }
       ],
       results: [
         { metric: 'Active', label: 'maintained & balanced', isAccent: true },
@@ -498,7 +493,6 @@ export const PROJECTS = [
     kind: 'Inventory System · React & PHP API · 2024',
     blurb: 'Full-stack inventory and order management system with a reactive React frontend SPA, custom PHP REST API, and Docker containerization.',
     stack: 'React / PHP 8.1 / MySQL / Docker / Tailwind',
-    coverText: '[SYSTEM · FLOWARE INVENTORY ARCHITECTURE]',
     image: '/assets/logo.png',
     sourceUrl: 'https://github.com/FloWareR/Floware',
     clientSourceUrl: 'https://github.com/FloWareR/Floware-front',
@@ -538,7 +532,7 @@ export const PROJECTS = [
         }
       ],
       gallery: [
-        { src: '/assets/logo.png', label: '[ARCHITECTURE · FLOWARE]', title: 'FLOWARE System Identity & Architecture' }
+        { src: '/assets/logo.png', title: 'FLOWARE System Identity & Architecture' }
       ],
       results: [
         { metric: 'React+PHP', label: 'fully decoupled full-stack architecture', isAccent: true },

@@ -47,6 +47,7 @@ export default function FeaturedCarousel({ onSelectProject, onShowAllProjects })
           return (
             <article
               key={`${item.id}-${k}`}
+              className="carousel-card"
               onClick={() => {
                 if (!isCenter) {
                   if (k === 0) prev();
@@ -56,32 +57,13 @@ export default function FeaturedCarousel({ onSelectProject, onShowAllProjects })
               style={{
                 flex: isCenter ? '0 0 min(720px, 86%)' : '0 0 min(520px, 70%)',
                 opacity: isCenter ? 1 : 0.32,
-                display: 'flex',
-                flexWrap: 'wrap',
-                border: '1px solid var(--theme-line)',
-                borderRadius: '24px',
-                overflow: 'hidden',
                 background: isCenter ? 'var(--theme-card)' : 'var(--theme-bg)',
-                minHeight: '220px',
                 cursor: isCenter ? 'default' : 'pointer',
-                transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
                 boxShadow: isCenter ? '0 12px 32px rgba(0,0,0,0.15)' : 'none'
               }}
             >
               {/* Media preview column */}
-              <div
-                className="pattern-striped"
-                style={{
-                  flex: '1 1 220px',
-                  minHeight: '200px',
-                  position: 'relative',
-                  display: 'flex',
-                  alignItems: 'flex-end',
-                  padding: '16px',
-                  boxSizing: 'border-box',
-                  overflow: 'hidden'
-                }}
-              >
+              <div className="carousel-card-media pattern-striped">
                 {item.image && (
                   <img
                     src={item.image}
@@ -97,34 +79,10 @@ export default function FeaturedCarousel({ onSelectProject, onShowAllProjects })
                     }}
                   />
                 )}
-                <span
-                  style={{
-                    position: 'relative',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '11px',
-                    color: 'var(--theme-muted)',
-                    background: 'var(--theme-bg)',
-                    padding: '4px 8px',
-                    borderRadius: '6px',
-                    border: '1px solid var(--theme-line)',
-                    zIndex: 2
-                  }}
-                >
-                  {item.coverText}
-                </span>
               </div>
 
               {/* Info column */}
-              <div
-                style={{
-                  flex: '1 1 240px',
-                  padding: '24px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '12px',
-                  boxSizing: 'border-box'
-                }}
-              >
+              <div className="carousel-card-info">
                 <span
                   style={{
                     alignSelf: 'flex-start',
@@ -154,14 +112,7 @@ export default function FeaturedCarousel({ onSelectProject, onShowAllProjects })
                   {item.title}
                 </h2>
 
-                <p
-                  style={{
-                    margin: 0,
-                    color: 'var(--theme-muted)',
-                    fontSize: '14px',
-                    lineHeight: 1.5
-                  }}
-                >
+                <p className="carousel-card-blurb">
                   {item.blurb}
                 </p>
 

@@ -674,22 +674,6 @@ export default function HomeView({ onNavigate, onSelectProject }) {
                   e.currentTarget.style.transform = 'scale(1)';
                 }}
               />
-              <span
-                style={{
-                  position: 'absolute',
-                  bottom: '16px',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '12px',
-                  color: 'var(--theme-muted)',
-                  background: 'var(--theme-bg)',
-                  padding: '6px 12px',
-                  borderRadius: '6px',
-                  border: '1px solid var(--theme-line)',
-                  pointerEvents: 'none'
-                }}
-              >
-                [PHOTO OF RAFAEL · B/W]
-              </span>
             </div>
           </figure>
         </div>
@@ -837,16 +821,7 @@ export default function HomeView({ onNavigate, onSelectProject }) {
                 gap: '16px',
                 border: '1px solid var(--theme-line)',
                 borderRadius: '20px',
-                padding: '16px',
-                transition: 'border-color 0.2s ease, transform 0.2s ease'
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'var(--theme-fg)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'var(--theme-line)';
-                e.currentTarget.style.transform = 'translateY(0)';
+                padding: '16px'
               }}
             >
               <span
@@ -856,8 +831,8 @@ export default function HomeView({ onNavigate, onSelectProject }) {
                   width: '52px',
                   height: '52px',
                   borderRadius: '14px',
-                  background: tool.isAccent ? 'var(--theme-accent)' : 'var(--theme-inv)',
-                  color: tool.isAccent ? '#141414' : 'var(--theme-inv-fg)',
+                  background: 'var(--theme-inv)',
+                  color: 'var(--theme-inv-fg)',
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',

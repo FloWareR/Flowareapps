@@ -20,7 +20,7 @@ export default function Footer({ onScrollTop }) {
         alignItems: 'center',
         gap: '12px 24px',
         marginTop: 'clamp(64px, 8vw, 104px)',
-        padding: '24px 0 32px',
+        padding: '24px clamp(20px, 4vw, 56px) 32px',
         borderTop: '1px solid var(--theme-line)',
         fontSize: '13px',
         color: 'var(--theme-muted)'
