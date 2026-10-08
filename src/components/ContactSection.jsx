@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ConcentricRings from './ConcentricRings';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
-export default function ContactSection() {
+export default function ContactSection({ style = {} }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = (e) => {
@@ -23,7 +23,8 @@ export default function ContactSection() {
         position: 'relative',
         marginTop: 'clamp(80px, 10vw, 140px)',
         padding: 'clamp(48px, 6vw, 80px) clamp(20px, 4vw, 56px) 0',
-        borderTop: '1px solid var(--theme-line)'
+        borderTop: '1px solid var(--theme-line)',
+        ...style
       }}
     >
       <ConcentricRings position="bottom-left" />

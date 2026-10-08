@@ -616,6 +616,7 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
             marginTop: 'clamp(80px, 10vw, 120px)',
             padding: 'clamp(32px, 4vw, 48px) clamp(20px, 4vw, 56px)',
             borderTop: '1px solid var(--theme-line)',
+            borderBottom: '1px solid var(--theme-line)',
             color: 'var(--theme-fg)',
             cursor: 'pointer',
             transition: 'background-color 0.2s ease'
@@ -670,7 +671,7 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
       )}
 
       {/* CONTACT SECTION */}
-      <ContactSection />
+      <ContactSection style={{ marginTop: 0, borderTop: 'none' }} />
 
       {/* FOOTER */}
       <Footer onScrollTop={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
