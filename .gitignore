@@ -1,3 +1,6 @@
 node_modules/
 dist/
 .parcel-cache
+design_raw/
+legacy_src_backup/
+artifact_*

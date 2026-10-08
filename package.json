@@ -1,12 +1,13 @@
 {
-  "name": "simplefolio",
+  "name": "rafael-flores-portfolio",
   "version": "1.0.1",
-  "private": "true",
-  "description": "A clean, beautiful and responsive portfolio template for Developers!",
-  "source": "src/index.html",
+  "private": true,
+  "type": "module",
+  "description": "Portfolio of Rafael Flores - Game Dev & Full-stack Developer",
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -26,9 +27,14 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
+    "@vitejs/plugin-react": "^6.1.2",
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.3",
+    "lucide-react": "^1.52.0",
     "popper.js": "^1.16.1",
-    "vanilla-tilt": "^1.8.0"
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "vanilla-tilt": "^1.8.0",
+    "vite": "^8.3.3"
   }
 }
