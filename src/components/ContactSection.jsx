@@ -349,37 +349,7 @@ export default function ContactSection({ style = {} }) {
             </a>
           </li>
 
-          {/* Portfolio */}
-          <li>
-            <a
-              href={PERSONAL_INFO.portfolioUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignItems: 'center',
-                gap: '4px 24px',
-                padding: '18px 0',
-                borderBottom: '1px solid var(--theme-line)',
-                color: 'var(--theme-fg)',
-                textDecoration: 'none',
-                transition: 'opacity 0.2s ease'
-              }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = '0.75')}
-              onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
-            >
-              <span style={{ flex: '0 0 120px', fontSize: '13px', color: 'var(--theme-muted)' }}>
-                Website
-              </span>
-              <span style={{ flex: '1 1 200px', fontFamily: 'var(--font-mono)', fontSize: '16px' }}>
-                www.flowareapps.com
-              </span>
-              <span aria-hidden="true" style={{ fontSize: '18px' }}>
-                ↗
-              </span>
-            </a>
-          </li>
+
         </ul>
       </div>
     </section>
