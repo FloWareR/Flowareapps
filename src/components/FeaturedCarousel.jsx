@@ -161,13 +161,13 @@ export default function FeaturedCarousel({ onSelectProject, onShowAllProjects })
                     onMouseEnter={e => (e.currentTarget.style.opacity = '0.9')}
                     onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
                   >
-                    View case study
+                    See more
                   </button>
 
                   <button
                     type="button"
                     tabIndex={isCenter ? 0 : -1}
-                    aria-label={`Open case study ${item.title}`}
+                    aria-label={`See more - ${item.title}`}
                     onClick={e => {
                       e.stopPropagation();
                       onSelectProject(item);
