@@ -552,7 +552,7 @@ export const PROJECTS = [
     kind: 'Company Website & Blog · React + Express · 2026',
     blurb: 'Website for a sports consultancy firm with a news blog powered by a custom Express REST API and a password-protected admin editor.',
     stack: 'React 19 / Vite / Express 5 / MySQL / Node.js',
-    image: '/assets/sportgestion.jpg',
+    image: '/assets/sportgestion_home.jpg',
     demoUrl: 'https://beta.sportgestion.mx',
     featured: true,
     details: {
@@ -588,7 +588,10 @@ export const PROJECTS = [
         }
       ],
       gallery: [
-        { src: '/assets/sportgestion.jpg', title: 'SportGestión Brand Identity' }
+        { src: '/assets/sportgestion_about.jpg', title: 'About & Company Values' },
+        { src: '/assets/sportgestion_services.jpg', title: 'Interactive Services Accordion' },
+        { src: '/assets/sportgestion_contact.jpg', title: 'Contact Form via Express API' },
+        { src: '/assets/sportgestion_admin.jpg', title: 'Password-protected News Admin' }
       ],
       results: [
         { metric: 'Live Beta', label: 'deployed on Hostinger Node.js', isAccent: true },
