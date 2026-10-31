@@ -88,7 +88,7 @@ export default function HomeView({ onNavigate, onSelectProject }) {
           }}
         >
           <div>Game Dev</div>
-          <div style={{ textAlign: 'right' }}>&amp; Full-stack</div>
+          <div style={{ textAlign: 'right' }}>&amp; Fullstack</div>
         </div>
 
         {/* Bio, actions & links */}
@@ -259,7 +259,7 @@ export default function HomeView({ onNavigate, onSelectProject }) {
             >
               I'm Rafael Flores, a{' '}
               <span style={{ color: 'var(--theme-fg)' }}>
-                junior full-stack and game developer
+                junior fullstack and game developer
               </span>{' '}
               based in Guadalajara, Mexico, with {PERSONAL_INFO.experienceTotal} of
               experience: Unity (C#) for mobile and PC, REST APIs in Go, enterprise

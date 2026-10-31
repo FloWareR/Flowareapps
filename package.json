@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "private": true,
   "type": "module",
-  "description": "Portfolio of Rafael Flores - Game Dev & Full-stack Developer",
+  "description": "Portfolio of Rafael Flores - Game Dev & Fullstack Developer",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

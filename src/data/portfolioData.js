@@ -1,10 +1,10 @@
 export const PERSONAL_INFO = {
   name: 'Rafael Flores Galvan',
   shortName: 'Rafael Flores',
-  title: 'Game Dev & Full-stack',
-  heroPreTitle: 'Rafael Flores Galvan · Full-stack & Game Developer (React · Go · Unity)',
+  title: 'Game Dev & Fullstack',
+  heroPreTitle: 'Rafael Flores Galvan · Fullstack & Game Developer (React · Go · Unity)',
   bio: 'I make games and web apps. Most days that means gameplay code in Unity, backend services in Go, or front ends in React.\n\nI’ve shipped 2D and 3D games for PC and mobile, built REST APIs and microservices, and deployed them on Google Cloud. I also work in C, C#, Godot, and JavaScript.',
-  aboutBio: "I'm Rafael, a junior full-stack and game developer in Guadalajara, Mexico. I've built Unity (C#) games for mobile and PC, REST APIs in Go, and enterprise apps with React, TypeScript, and Java Spring Boot running on Google Cloud.",
+  aboutBio: "I'm Rafael, a junior fullstack and game developer in Guadalajara, Mexico. I've built Unity (C#) games for mobile and PC, REST APIs in Go, and enterprise apps with React, TypeScript, and Java Spring Boot running on Google Cloud.",
   experienceTotal: '2 years',
   email: 'rfloresg@flowareapps.com',
   phone: '+52 33 20 47 8888',
@@ -224,7 +224,7 @@ export const PROJECTS = [
     featured: true,
     details: {
       intro: 'SportGestión is a Guadalajara consultancy that runs sports programs for government, companies, and community groups. Their site presents the firm and its services, takes contact requests, and has a "Noticias" blog the team writes from a private admin page.',
-      role: 'Full-stack Developer',
+      role: 'Fullstack Developer',
       engine: 'React 19 (Vite SPA) · Express 5 (REST API) · MySQL · Hostinger Node.js',
       duration: 'Beta · Active Development (2026)',
       platform: 'Web Browser',
@@ -548,7 +548,7 @@ export const PROJECTS = [
     featured: true,
     details: {
       intro: 'A self-hosted system for keeping track of what a business has in stock. Staff manage the product catalog, record stock coming in and going out, take orders, and keep customer records. It runs locally in Docker.',
-      role: 'Full-stack Developer & System Architect',
+      role: 'Fullstack Developer & System Architect',
       engine: 'React (Vite SPA) · PHP 8.1 (Custom REST API) · MySQL · Docker',
       duration: '4 months · Self-hosted / Local',
       platform: 'Docker · Web Browser (Local / On-Premise)',

@@ -67,7 +67,7 @@ export default function ContactSection({ style = {} }) {
           }}
         >
           <p style={{ margin: 0, color: 'var(--theme-muted)', lineHeight: 1.55 }}>
-            Open to game development and full-stack product work, freelance or
+            Open to game development and fullstack product work, freelance or
             full-time. I reply within 48 hours.
           </p>
 

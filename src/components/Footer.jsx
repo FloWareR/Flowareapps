@@ -27,7 +27,7 @@ export default function Footer({ onScrollTop }) {
       }}
     >
       <span>© 2026 Rafael Flores</span>
-      <span>Made in Mexico · Game &amp; Full-stack Developer</span>
+      <span>Made in Mexico · Game &amp; Fullstack Developer</span>
       <a
         href="#home"
         onClick={handleTopClick}
