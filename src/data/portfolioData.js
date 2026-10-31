@@ -447,7 +447,7 @@ export const PROJECTS = [
     kind: '2D Platformer · Unity 6 · 2025',
     blurb: 'Global Game Jam 2025 platformer. Spray bubbles to clean stained villagers and structures, and stand on bubbles to climb higher.',
     stack: 'Unity 6 / C# / 2D Physics',
-    image: '/assets/bubblegun.png',
+    image: '/assets/bubblegun_gameplay_3.jpg',
     demoUrl: 'https://juan-pablo-sr.itch.io/bubble-gun',
     featured: true,
     details: {
@@ -476,6 +476,11 @@ export const PROJECTS = [
           title: 'Hazards',
           desc: 'Hazards in the village get in the way of your cleaning and climbing.'
         }
+      ],
+      gallery: [
+        { src: '/assets/bubblegun_gameplay_1.jpg', title: 'Learning the controls' },
+        { src: '/assets/bubblegun_gameplay_2.jpg', title: 'Spraying bubbles' },
+        { src: '/assets/bubblegun_gameplay_3.jpg', title: 'Cleaning the villagers' }
       ],
       results: [
         { metric: 'GGJ 25', label: 'submitted on time', isAccent: true },
