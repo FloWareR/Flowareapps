@@ -541,6 +541,62 @@ export const PROJECTS = [
       ],
       stackTags: ['React', 'PHP 8.1', 'MySQL', 'Docker', 'Docker Compose', 'Tailwind CSS', 'Vite', 'REST API']
     }
+  },
+  {
+    id: 'sportgestion',
+    projectNumber: 'Project 07',
+    title: 'SportGestión',
+    type: 'web',
+    cat: 'Web',
+    badge: 'Fullstack · React & Express API',
+    kind: 'Company Website & Blog · React + Express · 2026',
+    blurb: 'Website for a sports consultancy firm with a news blog powered by a custom Express REST API and a password-protected admin editor.',
+    stack: 'React 19 / Vite / Express 5 / MySQL / Node.js',
+    image: '/assets/sportgestion.jpg',
+    demoUrl: 'https://beta.sportgestion.mx',
+    featured: true,
+    details: {
+      intro: 'Corporate website for SportGestión, a Guadalajara-based consultancy offering sports services to the public, private, and social sectors. Includes a "Noticias" blog that staff publish to from a built-in admin page, backed by a Node.js API.',
+      role: 'Full-stack Developer',
+      engine: 'React 19 (Vite SPA) · Express 5 (REST API) · MySQL · Hostinger Node.js',
+      duration: 'Beta · Active Development (2026)',
+      platform: 'Web Browser',
+      demoUrl: 'https://beta.sportgestion.mx',
+      demoText: 'Visit beta.sportgestion.mx',
+      challenge: 'Migrating a single-file PHP backend to a Node.js API without breaking the live contact form, while adding a secure blog: signed admin sessions, rate limiting, hostile-Markdown escaping, and validated image uploads.',
+      context: 'Built for a real client. The React front end gained path-based blog and admin pages without a router library, and the Express API runs as a Hostinger Node.js app next to MySQL.',
+      features: [
+        {
+          num: '01',
+          title: 'Express 5 REST API',
+          desc: 'Contact, auth, and blog routes with CORS, origin checks, per-IP rate limiting, and errors that never leak internals.'
+        },
+        {
+          num: '02',
+          title: 'News Blog',
+          desc: 'Public post list and detail pages with Spanish-aware slugs, cover images, and draft posts hidden from visitors.'
+        },
+        {
+          num: '03',
+          title: 'Admin Post Editor',
+          desc: 'Password-protected page with a visual editor, Markdown toggle, and inline images in the post body.'
+        },
+        {
+          num: '04',
+          title: 'Safe Content & Uploads',
+          desc: 'Markdown rendered with HTML escaped and unsafe links dropped; uploads checked by type and size before saving.'
+        }
+      ],
+      gallery: [
+        { src: '/assets/sportgestion.jpg', title: 'SportGestión Brand Identity' }
+      ],
+      results: [
+        { metric: 'Live Beta', label: 'deployed on Hostinger Node.js', isAccent: true },
+        { metric: 'PHP to Node', label: 'backend migrated, contact form kept intact', isAccent: false },
+        { metric: '50+ Tests', label: 'node:test + supertest API suite', isAccent: false }
+      ],
+      stackTags: ['React', 'Vite', 'Node.js', 'Express 5', 'MySQL', 'REST API', 'Markdown', 'Hostinger']
+    }
   }
 ];
 
