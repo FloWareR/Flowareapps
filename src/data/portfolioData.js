@@ -333,36 +333,35 @@ export const PROJECTS = [
     cat: 'Video Game',
     badge: 'Video Game · 2D Top-down',
     kind: '2D Top-down Shooter · Unity · 2023',
-    blurb: 'Top-down arcade shooter where a very buff fish fights off waves of sea predators and levels up between fights.',
+    blurb: 'Top-down 2D shooter where a buff fish with a gun breaks out of a lab and fights through the scientists trying to stop it.',
     stack: 'Unity 2022 / C# / Aseprite',
     image: '/assets/fishflex.png',
     demoUrl: 'https://floware.itch.io/fish-flex',
     featured: true,
     details: {
-      intro: 'You play a buff fish with a gun, shooting your way through sharks, jellyfish, and octopuses. Each level-up gives you a random perk to build on.',
+      intro: 'You play a buff fish with a gun. Escape a lab and get revenge on the scientists who locked you in, shooting, dashing, and blocking your way out.',
       role: 'Lead Game Developer',
       engine: 'Unity 2022 / C#',
       duration: '4 months',
       platform: 'PC · itch.io',
       demoUrl: 'https://floware.itch.io/fish-flex',
       demoText: 'Play on itch.io',
-      challenge: 'Keeping hundreds of bullets on screen without slowdowns, and balancing perks so runs get stronger without breaking.',
       context: 'Pixel art in the style of old arcade games, with particles and screen shake on top.',
       features: [
         {
           num: '01',
-          title: 'Twin-stick aiming',
-          desc: 'Aim in any direction with the mouse or the right gamepad stick.'
+          title: 'Shoot, dash, block',
+          desc: 'Fight your way out of the lab with a gun, a dash to get clear, and a block for incoming fire.'
         },
         {
           num: '02',
-          title: 'Random perks',
-          desc: 'Pick from a random set of upgrades every time you level up.'
+          title: 'New weapons',
+          desc: 'Pick up new weapons along the way, each with its own feel to use.'
         },
         {
           num: '03',
-          title: 'Enemy types',
-          desc: 'Sharks that charge, jellyfish that shock, and octopuses that hide.'
+          title: 'Scientists',
+          desc: 'The scientists in the lab try to stop your escape at every turn.'
         },
         {
           num: '04',
@@ -371,7 +370,9 @@ export const PROJECTS = [
         }
       ],
       gallery: [
-        { src: '/assets/fishflex.png', title: 'Fighting on the seabed' }
+        { src: '/assets/fishflex_gameplay_1.gif', title: 'Escaping through the lab' },
+        { src: '/assets/fishflex_gameplay_2.gif', title: 'Firing a weapon' },
+        { src: '/assets/fishflex_gameplay_3.gif', title: 'Dashing past the lab' }
       ],
       results: [
         { metric: '2.5k+', label: 'plays on itch.io', isAccent: true }
@@ -386,32 +387,32 @@ export const PROJECTS = [
     type: 'jam',
     cat: 'Game Jam',
     badge: 'Game Jam · GameJamPlus 24/25',
-    kind: '2.5D Combat Racing · Unity · 2024',
+    kind: '2.5D Racing · Unity · 2024',
     blurb: 'Caveman racing game from GameJamPlus 2024/25. First to grab three pieces of meat wins, and power-ups help you get there.',
     stack: 'Unity / C# / 2.5D Physics / Game Jam',
-    image: '/assets/primal_race.png',
+    image: '/assets/primal_race.jpg',
     demoUrl: 'https://juanf4r-dev.itch.io/gamejam-plus-2024',
     featured: true,
     details: {
-      intro: 'A 2.5D racing game where two cavemen race around obstacle tracks fighting over meat. Grab three pieces before your rival does.',
+      intro: 'A third-person 2.5D racing game where two cavemen race for food. Grab three pieces of meat before your rival does, using power-ups scattered around the map.',
       role: 'Gameplay Programmer & Mechanics',
       engine: 'Unity / C#',
       duration: 'GameJamPlus 2024/2025 Submission',
       platform: 'PC (itch.io)',
       demoUrl: 'https://juanf4r-dev.itch.io/gamejam-plus-2024',
       demoText: 'Play on itch.io',
-      challenge: 'Getting kart-style steering and drifting to feel right, plus hazards and power-ups, within the jam deadline.',
-      context: 'Programmed with Juan Pablo Saavedra and Juan Fernando Aispuro. Design by Juan Fernando Aispuro and Julio Tonatiuh Aguilera, art by Águeda Isabel.',
+      challenge: 'Taking over the jam code, which was spaghetti, and restructuring it into a project that is easier to update and manage.',
+      context: 'Programmed with Juan Pablo Saavedra, Juan Fernando Aispuro, and me. Design by Juan Fernando Aispuro and Julio Tonatiuh Aguilera, art by Águeda Isabel.',
       features: [
         {
           num: '01',
-          title: 'Steering and drifts',
-          desc: 'Tight kart-style handling for weaving around obstacles.'
+          title: 'Local two-player race',
+          desc: 'Two cavemen compete on the same PC, split-screen, with a character and map select before each run.'
         },
         {
           num: '02',
           title: 'Power-ups',
-          desc: 'Speed boosts, traps to drop on your rival, and defensive items along the track.'
+          desc: 'Power-ups scattered around the map give you an edge over your rival.'
         },
         {
           num: '03',
@@ -420,12 +421,14 @@ export const PROJECTS = [
         },
         {
           num: '04',
-          title: 'Bumping',
-          desc: 'Ram and nudge the other caveman off the racing line.'
+          title: 'Timed rounds',
+          desc: 'A countdown timer runs each race, so route and strategy matter.'
         }
       ],
       gallery: [
-        { src: '/assets/primal_race.png', title: 'Racing for meat' }
+        { src: '/assets/primal_race_gameplay_1.jpg', title: 'Split-screen race for meat' },
+        { src: '/assets/primal_race_gameplay_2.jpg', title: 'Racing on the ice map' },
+        { src: '/assets/primal_race_gameplay_3.jpg', title: 'Head to head on the track' }
       ],
       results: [
         { metric: 'GJ+ 24/25', label: 'GameJamPlus entry', isAccent: true },
@@ -442,7 +445,7 @@ export const PROJECTS = [
     cat: 'Game Jam',
     badge: 'Game Jam · GGJ 2025',
     kind: '2D Platformer · Unity 6 · 2025',
-    blurb: 'Global Game Jam 2025 platformer. Shoot bubbles to trap and clean dirty villagers, then jump on the bubbles to climb higher.',
+    blurb: 'Global Game Jam 2025 platformer. Spray bubbles to clean stained villagers and structures, and stand on bubbles to climb higher.',
     stack: 'Unity 6 / C# / 2D Physics',
     image: '/assets/bubblegun.png',
     demoUrl: 'https://juan-pablo-sr.itch.io/bubble-gun',
@@ -455,27 +458,24 @@ export const PROJECTS = [
       platform: 'Web · PC (itch.io)',
       demoUrl: 'https://juan-pablo-sr.itch.io/bubble-gun',
       demoText: 'Play on itch.io',
-      challenge: 'Making one bubble do two jobs: trap an enemy, and hold the player up as a platform.',
+      challenge: 'Making one bubble do two jobs: hold the player up as a platform, and spray-clean the stained villagers and structures.',
       context: 'Programmed with Juan Saavedra. Design by Juanfer Aispuro, art by Alex Cordova, with David Ville as mentor.',
       features: [
         {
           num: '01',
-          title: 'Floating bubbles',
-          desc: 'Bubbles drift on air currents and sink a little when you stand on them.'
+          title: 'Bubble platforms',
+          desc: 'Stand on a bubble to hold yourself up. Bubbles do not sink under you.'
         },
         {
           num: '02',
-          title: 'Trap and clean',
-          desc: 'Catch dirty villagers and enemies in a bubble to clean them.'
+          title: 'Spray mode',
+          desc: 'Spray bubbles to clean stained villagers and structures, Mario Sunshine style.'
         },
         {
           num: '03',
-          title: 'Bubble jumping',
-          desc: 'Use bubbles as stepping stones over gaps and hazards.'
+          title: 'Hazards',
+          desc: 'Hazards in the village get in the way of your cleaning and climbing.'
         }
-      ],
-      gallery: [
-        { src: '/assets/bubblegun.png', title: 'Bubbles as platforms' }
       ],
       results: [
         { metric: 'GGJ 25', label: 'submitted on time', isAccent: true },
@@ -542,7 +542,7 @@ export const PROJECTS = [
     kind: 'Inventory System · React & PHP API · 2024',
     blurb: 'Inventory and order tracker for a small store or warehouse: products, stock, orders, and customers, with a React dashboard and a PHP API.',
     stack: 'React / PHP 8.1 / MySQL / Docker / Tailwind',
-    image: '/assets/logo.png',
+    image: '/assets/floware_inventory_dashboard.jpg',
     sourceUrl: 'https://github.com/FloWareR/Floware',
     clientSourceUrl: 'https://github.com/FloWareR/Floware-front',
     featured: true,
@@ -581,7 +581,10 @@ export const PROJECTS = [
         }
       ],
       gallery: [
-        { src: '/assets/logo.png', title: 'FLOWARE logo' }
+        { src: '/assets/floware_inventory_dashboard.jpg', title: 'Dashboard' },
+        { src: '/assets/floware_inventory_products.jpg', title: 'Products' },
+        { src: '/assets/floware_inventory_customers.jpg', title: 'Customers' },
+        { src: '/assets/floware_inventory_orders.jpg', title: 'Orders' }
       ],
       results: [
         { metric: 'Docker', label: 'runs locally with one command', isAccent: true }
