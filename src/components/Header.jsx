@@ -21,7 +21,9 @@ export default function Header({ currentView, onNavigate }) {
   return (
     <header
       style={{
-        position: 'relative',
+        position: 'sticky',
+        top: 0,
+        background: 'var(--theme-bg)',
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',

@@ -432,7 +432,7 @@ export const PROJECTS = [
       ],
       results: [
         { metric: 'GJ+ 24/25', label: 'GameJamPlus entry', isAccent: true },
-        { metric: '3', label: 'programmers on the team', isAccent: false }
+        { metric: 'Finalist', label: 'GJ+ in Brasil', isAccent: false }
       ],
       stackTags: ['Unity', 'C#', '2.5D Physics', 'Game Jam', 'itch.io']
     }

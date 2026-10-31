@@ -87,7 +87,7 @@ function PortfolioApp() {
           border: '1px solid var(--theme-line)',
           borderRadius: 'clamp(20px, 3vw, 40px)',
           position: 'relative',
-          overflow: 'hidden',
+          overflow: 'clip', // clip, not hidden: hidden would break the header's sticky
         }}
       >
         <Header currentView={currentView} onNavigate={handleNavigate} />
