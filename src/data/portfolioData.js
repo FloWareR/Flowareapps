@@ -288,7 +288,7 @@ export const PROJECTS = [
       demoUrl: 'https://floware.itch.io/argo-in-dp',
       demoText: 'Download on itch.io',
       videoUrl: 'https://www.youtube.com/watch?v=UjNZgRV2RYU',
-      challenge: 'Splitting the game into a planning phase and a hands-off run phase, where perks and fragile packages can change how the robot behaves partway through.',
+      challenge: 'Splitting the game into a planning phase and a hands-off run phase, where perks can change how the robot behaves partway through.',
       context: 'Made with Valeria Meza (2D art) and Cecilia Morales (3D art and level design). I led the tech side and wrote the gameplay code.',
       features: [
         {
@@ -303,8 +303,8 @@ export const PROJECTS = [
         },
         {
           num: '03',
-          title: 'Fragile packages',
-          desc: 'Some deliveries break on hard turns or hazards, so the route has to account for them.'
+          title: 'Dev tooling',
+          desc: 'A map editor for building levels and a dev console for testing and tuning during development.'
         },
         {
           num: '04',
