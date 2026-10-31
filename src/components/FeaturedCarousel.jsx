@@ -58,8 +58,7 @@ export default function FeaturedCarousel({ onSelectProject, onShowAllProjects })
                 flex: isCenter ? '0 0 min(720px, 86%)' : '0 0 min(520px, 70%)',
                 opacity: isCenter ? 1 : 0.32,
                 background: isCenter ? 'var(--theme-card)' : 'var(--theme-bg)',
-                cursor: isCenter ? 'default' : 'pointer',
-                boxShadow: isCenter ? '0 12px 32px rgba(0,0,0,0.15)' : 'none'
+                cursor: isCenter ? 'default' : 'pointer'
               }}
             >
               {/* Media preview column */}
@@ -153,62 +152,13 @@ export default function FeaturedCarousel({ onSelectProject, onShowAllProjects })
                       background: 'var(--theme-inv)',
                       color: 'var(--theme-inv-fg)',
                       fontSize: '13px',
-                      fontStyle: 'italic',
                       fontWeight: 500,
                       cursor: 'pointer',
-                      transition: 'transform 0.2s ease, opacity 0.2s ease'
                     }}
-                    onMouseEnter={e => (e.currentTarget.style.opacity = '0.9')}
-                    onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
                   >
-                    See more
+                    See project
                   </button>
 
-                  <button
-                    type="button"
-                    tabIndex={isCenter ? 0 : -1}
-                    aria-label={`See more - ${item.title}`}
-                    onClick={e => {
-                      e.stopPropagation();
-                      onSelectProject(item);
-                    }}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: '44px',
-                      height: '44px',
-                      borderRadius: '50%',
-                      background: 'var(--theme-inv)',
-                      color: 'var(--theme-inv-fg)',
-                      cursor: 'pointer',
-                      transition: 'transform 0.2s ease, opacity 0.2s ease'
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.opacity = '0.9';
-                      e.currentTarget.style.transform = 'scale(1.05)';
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.opacity = '1';
-                      e.currentTarget.style.transform = 'scale(1)';
-                    }}
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="18"
-                      height="18"
-                      aria-hidden="true"
-                      style={{
-                        fill: 'none',
-                        stroke: 'currentColor',
-                        strokeWidth: 1.6,
-                        strokeLinecap: 'round',
-                        strokeLinejoin: 'round'
-                      }}
-                    >
-                      <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                  </button>
                 </div>
               </div>
             </article>
@@ -241,15 +191,6 @@ export default function FeaturedCarousel({ onSelectProject, onShowAllProjects })
             background: 'var(--theme-bg)',
             color: 'var(--theme-fg)',
             cursor: 'pointer',
-            transition: 'border-color 0.2s ease, transform 0.2s ease'
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.borderColor = 'var(--theme-accent)';
-            e.currentTarget.style.transform = 'scale(1.05)';
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.borderColor = 'var(--theme-line)';
-            e.currentTarget.style.transform = 'scale(1)';
           }}
         >
           <svg
@@ -297,15 +238,6 @@ export default function FeaturedCarousel({ onSelectProject, onShowAllProjects })
             background: 'var(--theme-bg)',
             color: 'var(--theme-fg)',
             cursor: 'pointer',
-            transition: 'border-color 0.2s ease, transform 0.2s ease'
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.borderColor = 'var(--theme-accent)';
-            e.currentTarget.style.transform = 'scale(1.05)';
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.borderColor = 'var(--theme-line)';
-            e.currentTarget.style.transform = 'scale(1)';
           }}
         >
           <svg
@@ -342,52 +274,16 @@ export default function FeaturedCarousel({ onSelectProject, onShowAllProjects })
             alignItems: 'center',
             gap: '12px',
             height: '48px',
-            padding: '0 8px 0 24px',
+            padding: '0 24px',
             borderRadius: '999px',
             border: '1px solid var(--theme-line)',
             color: 'var(--theme-fg)',
             background: 'var(--theme-bg)',
             fontSize: '14px',
-            fontStyle: 'italic',
             cursor: 'pointer',
-            transition: 'border-color 0.2s ease, background-color 0.2s ease'
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.borderColor = 'var(--theme-accent)';
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.borderColor = 'var(--theme-line)';
           }}
         >
           View all projects
-          <span
-            aria-hidden="true"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '34px',
-              height: '34px',
-              borderRadius: '50%',
-              background: 'var(--theme-accent)',
-              color: '#141414'
-            }}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              width="16"
-              height="16"
-              style={{
-                fill: 'none',
-                stroke: 'currentColor',
-                strokeWidth: 1.8,
-                strokeLinecap: 'round',
-                strokeLinejoin: 'round'
-              }}
-            >
-              <path d="M5 12h14M13 6l6 6-6 6" />
-            </svg>
-          </span>
         </button>
       </div>
     </section>

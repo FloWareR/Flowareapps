@@ -33,12 +33,8 @@ export default function Footer({ onScrollTop }) {
         onClick={handleTopClick}
         style={{
           color: 'var(--theme-fg)',
-          textDecoration: 'none',
           cursor: 'pointer',
-          transition: 'color 0.2s ease'
         }}
-        onMouseEnter={e => (e.currentTarget.style.color = 'var(--theme-accent)')}
-        onMouseLeave={e => (e.currentTarget.style.color = 'var(--theme-fg)')}
       >
         Back to top ↑
       </a>

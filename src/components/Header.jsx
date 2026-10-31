@@ -35,7 +35,6 @@ export default function Header({ currentView, onNavigate }) {
         href="#home"
         onClick={e => handleNavClick(e, 'home', '#home')}
         style={{
-          textDecoration: 'none',
           color: 'var(--theme-fg)',
           fontSize: '15px',
           lineHeight: '1.25',
@@ -61,11 +60,7 @@ export default function Header({ currentView, onNavigate }) {
             borderRadius: '999px',
             color: 'var(--theme-fg)',
             fontSize: '13px',
-            fontStyle: 'italic',
-            transition: 'border-color 0.2s ease, background-color 0.2s ease'
           }}
-          onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--theme-fg)')}
-          onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--theme-line)')}
         >
           <svg
             viewBox="0 0 24 24"
@@ -96,13 +91,8 @@ export default function Header({ currentView, onNavigate }) {
           onClick={e => handleNavClick(e, 'home', '#about')}
           style={{
             color: 'var(--theme-fg)',
-            textDecoration: 'none',
             padding: '12px 0',
-            opacity: 0.9,
-            transition: 'opacity 0.2s ease'
           }}
-          onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
-          onMouseLeave={e => (e.currentTarget.style.opacity = '0.9')}
         >
           About
         </a>
@@ -113,12 +103,11 @@ export default function Header({ currentView, onNavigate }) {
           style={{
             color: 'var(--theme-fg)',
             padding: '12px 0',
-            textDecoration: currentView === 'projects' ? 'underline' : 'none',
+            textDecorationLine: currentView === 'projects' ? 'underline' : undefined,
             textDecorationColor: 'var(--theme-accent)',
             textDecorationThickness: '2px',
             textUnderlineOffset: '6px',
             fontWeight: currentView === 'projects' ? 600 : 400,
-            transition: 'opacity 0.2s ease'
           }}
         >
           Projects
@@ -129,10 +118,7 @@ export default function Header({ currentView, onNavigate }) {
           onClick={e => handleNavClick(e, 'home', '#experience')}
           style={{
             color: 'var(--theme-fg)',
-            textDecoration: 'none',
             padding: '12px 0',
-            opacity: 0.9,
-            transition: 'opacity 0.2s ease'
           }}
         >
           Experience
@@ -143,10 +129,7 @@ export default function Header({ currentView, onNavigate }) {
           onClick={e => handleNavClick(e, currentView, '#contact')}
           style={{
             color: 'var(--theme-fg)',
-            textDecoration: 'none',
             padding: '12px 0',
-            opacity: 0.9,
-            transition: 'opacity 0.2s ease'
           }}
         >
           Contact
@@ -172,15 +155,6 @@ export default function Header({ currentView, onNavigate }) {
             color: 'var(--theme-fg)',
             cursor: 'pointer',
             padding: 0,
-            transition: 'transform 0.2s ease, border-color 0.2s ease'
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.borderColor = 'var(--theme-accent)';
-            e.currentTarget.style.transform = 'scale(1.05)';
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.borderColor = 'var(--theme-line)';
-            e.currentTarget.style.transform = 'scale(1)';
           }}
         >
           {isDark ? (

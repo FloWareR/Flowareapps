@@ -14,7 +14,7 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
   const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
 
   return (
-    <div className="animate-fade-in">
+    <div>
       <ConcentricRings position="top-right" />
 
       {/* HEADER SECTION */}
@@ -24,18 +24,6 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
           padding: 'clamp(48px, 6vw, 88px) clamp(20px, 4vw, 56px) 0'
         }}
       >
-        <p
-          style={{
-            margin: '0 0 20px',
-            fontFamily: 'var(--font-mono)',
-            fontWeight: 500,
-            fontSize: '13px',
-            color: 'var(--theme-fg)'
-          }}
-        >
-          ... /{currentProject.projectNumber || 'Project'} ...
-        </p>
-
         <div
           style={{
             display: 'flex',
@@ -170,18 +158,8 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
                   borderRadius: '999px',
                   background: 'var(--theme-accent)',
                   color: '#141414',
-                  textDecoration: 'none',
                   fontSize: '14px',
                   fontWeight: 600,
-                  transition: 'opacity 0.2s ease, transform 0.2s ease'
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.opacity = '0.9';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.opacity = '1';
-                  e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
                 <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style={{ fill: 'currentColor', stroke: 'none' }}>
@@ -206,18 +184,8 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
                   background: 'var(--theme-bg)',
                   border: '1px solid var(--theme-line)',
                   color: 'var(--theme-fg)',
-                  textDecoration: 'none',
                   fontSize: '14px',
                   fontWeight: 500,
-                  transition: 'border-color 0.2s ease, transform 0.2s ease'
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = 'var(--theme-fg)';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = 'var(--theme-line)';
-                  e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
                 <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style={{ fill: 'currentColor' }}>
@@ -242,13 +210,9 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
                   background: 'var(--theme-bg)',
                   border: '1px solid var(--theme-line)',
                   color: 'var(--theme-fg)',
-                  textDecoration: 'none',
                   fontSize: '14px',
                   fontWeight: 500,
-                  transition: 'border-color 0.2s ease'
                 }}
-                onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--theme-fg)')}
-                onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--theme-line)')}
               >
                 <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style={{ fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round' }}>
                   <path d="M8 7l-5 5 5 5M16 7l5 5-5 5" />
@@ -272,13 +236,9 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
                   background: 'var(--theme-bg)',
                   border: '1px solid var(--theme-line)',
                   color: 'var(--theme-fg)',
-                  textDecoration: 'none',
                   fontSize: '14px',
                   fontWeight: 500,
-                  transition: 'border-color 0.2s ease'
                 }}
-                onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--theme-fg)')}
-                onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--theme-line)')}
               >
                 <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style={{ fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round' }}>
                   <path d="M8 7l-5 5 5 5M16 7l5 5-5 5" />
@@ -305,12 +265,13 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
               margin: 0,
               flex: '0 1 300px',
               fontFamily: 'var(--font-mono)',
-              fontWeight: 500,
-              fontSize: '13px',
+              fontWeight: 700,
+              fontSize: 'clamp(20px, 2vw, 26px)',
+              lineHeight: 1.2,
               color: 'var(--theme-fg)'
             }}
           >
-            ... /The challenge ...
+            The challenge
           </h2>
           <div
             style={{
@@ -355,66 +316,45 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
               margin: 0,
               flex: '0 1 300px',
               fontFamily: 'var(--font-mono)',
-              fontWeight: 500,
-              fontSize: '13px',
+              fontWeight: 700,
+              fontSize: 'clamp(20px, 2vw, 26px)',
+              lineHeight: 1.2,
               color: 'var(--theme-fg)'
             }}
           >
-            ... /What I built ...
+            What I built
           </h2>
 
-          <ol
+          <ul
             style={{
               flex: '1 1 520px',
               maxWidth: '760px',
               listStyle: 'none',
               margin: 0,
               padding: 0,
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-              gap: '16px'
+              borderTop: '1px solid var(--theme-line)'
             }}
           >
             {details.features.map((feat, idx) => (
               <li
                 key={idx}
                 style={{
-                  border: '1px solid var(--theme-line)',
-                  borderRadius: '24px',
-                  padding: '22px',
                   display: 'flex',
-                  flexDirection: 'column',
-                  gap: '8px',
-                  transition: 'border-color 0.2s ease, transform 0.2s ease'
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = 'var(--theme-accent)';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = 'var(--theme-line)';
-                  e.currentTarget.style.transform = 'translateY(0)';
+                  flexWrap: 'wrap',
+                  gap: '4px 24px',
+                  padding: '18px 0',
+                  borderBottom: '1px solid var(--theme-line)'
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '12px',
-                    color: 'var(--theme-accent)',
-                    fontWeight: 600
-                  }}
-                >
-                  {feat.num}
-                </span>
-                <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 500, color: 'var(--theme-fg)' }}>
+                <h3 style={{ flex: '0 0 220px', margin: 0, fontSize: '16px', fontWeight: 600, color: 'var(--theme-fg)' }}>
                   {feat.title}
                 </h3>
-                <p style={{ margin: 0, fontSize: '14px', color: 'var(--theme-muted)', lineHeight: 1.5 }}>
+                <p style={{ flex: '1 1 280px', margin: 0, fontSize: '14px', color: 'var(--theme-muted)', lineHeight: 1.55 }}>
                   {feat.desc}
                 </p>
               </li>
             ))}
-          </ol>
+          </ul>
         </section>
       )}
 
@@ -461,15 +401,6 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
                     height: '100%',
                     objectFit: 'cover',
                     opacity: 0.92,
-                    transition: 'transform 0.3s ease, opacity 0.3s ease'
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.opacity = '1';
-                    e.currentTarget.style.transform = 'scale(1.03)';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.opacity = '0.92';
-                    e.currentTarget.style.transform = 'scale(1)';
                   }}
                 />
               )}
@@ -493,12 +424,13 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
               margin: 0,
               flex: '0 1 300px',
               fontFamily: 'var(--font-mono)',
-              fontWeight: 500,
-              fontSize: '13px',
+              fontWeight: 700,
+              fontSize: 'clamp(20px, 2vw, 26px)',
+              lineHeight: 1.2,
               color: 'var(--theme-fg)'
             }}
           >
-            ... /Results ...
+            Results
           </h2>
 
           <div
@@ -562,12 +494,13 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
               margin: 0,
               flex: '0 1 300px',
               fontFamily: 'var(--font-mono)',
-              fontWeight: 500,
-              fontSize: '13px',
+              fontWeight: 700,
+              fontSize: 'clamp(20px, 2vw, 26px)',
+              lineHeight: 1.2,
               color: 'var(--theme-fg)'
             }}
           >
-            ... /Tech Stack ...
+            Tech Stack
           </h2>
 
           <ul
@@ -619,10 +552,7 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
             borderBottom: '1px solid var(--theme-line)',
             color: 'var(--theme-fg)',
             cursor: 'pointer',
-            transition: 'background-color 0.2s ease'
           }}
-          onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--theme-card)')}
-          onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'transparent')}
         >
           <span style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             <span style={{ fontSize: '13px', color: 'var(--theme-muted)' }}>Next project</span>
@@ -649,7 +579,6 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
               borderRadius: '50%',
               background: 'var(--theme-fg)',
               color: 'var(--theme-bg)',
-              transition: 'transform 0.2s ease'
             }}
           >
             <svg

@@ -12,6 +12,43 @@ import {
   TOOLS
 } from '../data/portfolioData';
 
+const PAD_X = 'clamp(20px, 4vw, 56px)';
+
+const sectionHeading = {
+  margin: 0,
+  fontFamily: 'var(--font-mono)',
+  fontWeight: 700,
+  fontSize: 'clamp(24px, 2.6vw, 34px)',
+  lineHeight: 1.1,
+  letterSpacing: '-0.01em',
+  color: 'var(--theme-fg)'
+};
+
+const ruledList = {
+  listStyle: 'none',
+  margin: 0,
+  padding: 0,
+  borderTop: '1px solid var(--theme-line)'
+};
+
+const ruledRow = {
+  padding: '16px 0',
+  borderBottom: '1px solid var(--theme-line)'
+};
+
+const metaText = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: '12px',
+  color: 'var(--theme-muted)'
+};
+
+const SOCIAL_LINKS = [
+  { label: 'GitHub', href: PERSONAL_INFO.links.github },
+  { label: 'LinkedIn', href: PERSONAL_INFO.links.linkedin },
+  { label: 'itch.io', href: PERSONAL_INFO.links.itch },
+  { label: 'Email', href: `mailto:${PERSONAL_INFO.email}` }
+];
+
 export default function HomeView({ onNavigate, onSelectProject }) {
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
@@ -21,7 +58,7 @@ export default function HomeView({ onNavigate, onSelectProject }) {
   };
 
   return (
-    <div className="animate-fade-in">
+    <div>
       <ConcentricRings position="top-right" />
 
       {/* Screen-reader accessible title */}
@@ -34,144 +71,44 @@ export default function HomeView({ onNavigate, onSelectProject }) {
         id="home"
         style={{
           position: 'relative',
-          padding: 'clamp(32px, 4.5vw, 64px) clamp(20px, 4vw, 56px) 0'
+          padding: `clamp(32px, 4.5vw, 64px) ${PAD_X} 0`
         }}
       >
+        <div
+          aria-hidden="true"
+          style={{
+            borderTop: '1px solid var(--theme-line)',
+            paddingTop: 'clamp(28px, 4vw, 56px)',
+            fontFamily: 'var(--font-mono)',
+            fontWeight: 700,
+            fontSize: 'clamp(40px, 8.2vw, 128px)',
+            lineHeight: 1,
+            letterSpacing: '-0.02em',
+            color: 'var(--theme-fg)'
+          }}
+        >
+          <div>Game Dev</div>
+          <div style={{ textAlign: 'right' }}>&amp; Full-stack</div>
+        </div>
+
+        {/* Bio, actions & links */}
         <div
           style={{
             display: 'flex',
             flexWrap: 'wrap',
             alignItems: 'flex-end',
             justifyContent: 'space-between',
-            gap: '20px 32px',
-            borderTop: '1px solid var(--theme-line)',
-            paddingTop: 'clamp(28px, 4vw, 56px)'
-          }}
-        >
-          <div
-            aria-hidden="true"
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontWeight: 700,
-              fontSize: 'clamp(40px, 8.2vw, 128px)',
-              lineHeight: 1,
-              letterSpacing: '-0.02em',
-              color: 'var(--theme-fg)'
-            }}
-          >
-            Game Dev
-          </div>
-
-          <div
-            aria-hidden="true"
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontWeight: 700,
-              fontSize: 'clamp(40px, 8.2vw, 128px)',
-              lineHeight: 1,
-              letterSpacing: '-0.02em',
-              marginLeft: 'auto',
-              textAlign: 'right',
-              color: 'var(--theme-fg)'
-            }}
-          >
-            &amp; Full-stack
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <button
-              type="button"
-              onClick={() => scrollToSection('projects')}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                minWidth: '200px',
-                height: '48px',
-                padding: '0 28px',
-                borderRadius: '999px',
-                background: 'var(--theme-inv)',
-                color: 'var(--theme-inv-fg)',
-                fontSize: '15px',
-                fontStyle: 'italic',
-                fontWeight: 500,
-                cursor: 'pointer',
-                transition: 'opacity 0.2s ease, transform 0.2s ease'
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.opacity = '0.9';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.opacity = '1';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              View projects
-            </button>
-
-            <button
-              type="button"
-              aria-label="Go to projects"
-              onClick={() => scrollToSection('projects')}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '48px',
-                height: '48px',
-                borderRadius: '50%',
-                background: 'var(--theme-inv)',
-                color: 'var(--theme-inv-fg)',
-                cursor: 'pointer',
-                transition: 'opacity 0.2s ease, transform 0.2s ease'
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.opacity = '0.9';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.opacity = '1';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <svg
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-                aria-hidden="true"
-                style={{
-                  fill: 'none',
-                  stroke: 'currentColor',
-                  strokeWidth: 1.6,
-                  strokeLinecap: 'round',
-                  strokeLinejoin: 'round'
-                }}
-              >
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* Bio summary & Actions */}
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap-reverse',
-            alignItems: 'flex-end',
-            justifyContent: 'space-between',
             gap: '28px 40px',
-            marginTop: 'clamp(12px, 2vw, 24px)'
+            marginTop: 'clamp(24px, 3vw, 40px)'
           }}
         >
           <div
             style={{
               flex: '1 1 320px',
-              maxWidth: '520px',
+              maxWidth: '540px',
               display: 'flex',
               flexDirection: 'column',
-              gap: '20px'
+              gap: '24px'
             }}
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -180,8 +117,8 @@ export default function HomeView({ onNavigate, onSelectProject }) {
                   key={idx}
                   style={{
                     margin: 0,
-                    color: 'var(--theme-muted)',
-                    fontSize: idx === 0 ? '16px' : '15px',
+                    color: idx === 0 ? 'var(--theme-fg)' : 'var(--theme-muted)',
+                    fontSize: idx === 0 ? '17px' : '15px',
                     lineHeight: 1.55
                   }}
                 >
@@ -205,18 +142,8 @@ export default function HomeView({ onNavigate, onSelectProject }) {
                   borderRadius: '999px',
                   background: 'var(--theme-accent)',
                   color: '#141414',
-                  textDecoration: 'none',
                   fontSize: '14px',
-                  fontWeight: 600,
-                  transition: 'opacity 0.2s ease, transform 0.2s ease'
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.opacity = '0.9';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.opacity = '1';
-                  e.currentTarget.style.transform = 'translateY(0)';
+                  fontWeight: 600
                 }}
               >
                 <svg
@@ -239,7 +166,7 @@ export default function HomeView({ onNavigate, onSelectProject }) {
 
               <button
                 type="button"
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('projects')}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -249,173 +176,40 @@ export default function HomeView({ onNavigate, onSelectProject }) {
                   border: '1px solid var(--theme-line)',
                   color: 'var(--theme-fg)',
                   fontSize: '14px',
-                  cursor: 'pointer',
-                  transition: 'border-color 0.2s ease, transform 0.2s ease'
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = 'var(--theme-fg)';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = 'var(--theme-line)';
-                  e.currentTarget.style.transform = 'translateY(0)';
+                  fontWeight: 500
                 }}
               >
-                Contact
+                See projects
               </button>
             </div>
           </div>
+
+          <ul
+            aria-label="Social links"
+            style={{
+              listStyle: 'none',
+              margin: 0,
+              padding: 0,
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '8px 24px',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '14px'
+            }}
+          >
+            {SOCIAL_LINKS.map(link => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  {...(link.href.startsWith('mailto:') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+                  style={{ color: 'var(--theme-fg)' }}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-
-        {/* Social networks pills */}
-        <ul
-          aria-label="Social links"
-          style={{
-            listStyle: 'none',
-            margin: 'clamp(40px, 5vw, 64px) 0 0',
-            padding: 0,
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '12px'
-          }}
-        >
-          <li>
-            <a
-              href={PERSONAL_INFO.links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                height: '44px',
-                padding: '0 20px',
-                border: '1px solid var(--theme-line)',
-                borderRadius: '999px',
-                color: 'var(--theme-fg)',
-                fontSize: '13px',
-                fontStyle: 'italic',
-                transition: 'border-color 0.2s ease, transform 0.2s ease'
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'var(--theme-accent)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'var(--theme-line)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style={{ fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round' }}>
-                <path d="M8 7l-5 5 5 5M16 7l5 5-5 5" />
-              </svg>
-              GitHub
-            </a>
-          </li>
-
-          <li>
-            <a
-              href={PERSONAL_INFO.links.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                height: '44px',
-                padding: '0 20px',
-                border: '1px solid var(--theme-line)',
-                borderRadius: '999px',
-                color: 'var(--theme-fg)',
-                fontSize: '13px',
-                fontStyle: 'italic',
-                transition: 'border-color 0.2s ease, transform 0.2s ease'
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'var(--theme-accent)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'var(--theme-line)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style={{ fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round' }}>
-                <path d="M4 8h16v11H4zM9 8V5h6v3" />
-              </svg>
-              LinkedIn
-            </a>
-          </li>
-
-          <li>
-            <a
-              href={PERSONAL_INFO.links.itch}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                height: '44px',
-                padding: '0 20px',
-                border: '1px solid var(--theme-line)',
-                borderRadius: '999px',
-                color: 'var(--theme-fg)',
-                fontSize: '13px',
-                fontStyle: 'italic',
-                transition: 'border-color 0.2s ease, transform 0.2s ease'
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'var(--theme-accent)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'var(--theme-line)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style={{ fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round' }}>
-                <path d="M6 9h12a3 3 0 0 1 3 3v2a3 3 0 0 1-5.2 2L14 14h-4l-1.8 2A3 3 0 0 1 3 14v-2a3 3 0 0 1 3-3zM8 11v2M7 12h2M16 12h.01" />
-              </svg>
-              itch.io
-            </a>
-          </li>
-
-
-
-          <li>
-            <a
-              href={`mailto:${PERSONAL_INFO.email}`}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                height: '44px',
-                padding: '0 20px',
-                border: '1px solid var(--theme-line)',
-                borderRadius: '999px',
-                color: 'var(--theme-fg)',
-                fontSize: '13px',
-                fontStyle: 'italic',
-                transition: 'border-color 0.2s ease, transform 0.2s ease'
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'var(--theme-accent)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'var(--theme-line)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style={{ fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round' }}>
-                <path d="M3 6h18v12H3zM3 7l9 6 9-6" />
-              </svg>
-              Email
-            </a>
-          </li>
-        </ul>
       </section>
 
       {/* FEATURED PROJECTS CAROUSEL */}
@@ -427,9 +221,10 @@ export default function HomeView({ onNavigate, onSelectProject }) {
       {/* ABOUT ME SECTION */}
       <section
         id="about"
+        aria-labelledby="about-title"
         style={{
           position: 'relative',
-          padding: '0 clamp(20px, 4vw, 56px)'
+          padding: `0 ${PAD_X}`
         }}
       >
         <ConcentricRings position="about-right" />
@@ -439,203 +234,82 @@ export default function HomeView({ onNavigate, onSelectProject }) {
             position: 'relative',
             display: 'flex',
             flexWrap: 'wrap',
-            gap: '16px 40px',
-            justifyContent: 'space-between'
-          }}
-        >
-          <h2
-            style={{
-              margin: 0,
-              flex: '0 1 380px',
-              fontFamily: 'var(--font-mono)',
-              fontWeight: 500,
-              fontSize: '13px',
-              color: 'var(--theme-fg)'
-            }}
-          >
-            ... /About me ...
-          </h2>
-          <p
-            style={{
-              margin: 0,
-              flex: '1 1 360px',
-              maxWidth: '520px',
-              fontSize: 'clamp(17px, 1.6vw, 20px)',
-              lineHeight: 1.45,
-              color: 'var(--theme-muted)'
-            }}
-          >
-            Hi! I'm Rafael Flores,{' '}
-            <strong style={{ color: 'var(--theme-fg)', fontWeight: 500 }}>
-              Jr. Fullstack &amp; Game Developer
-            </strong>{' '}
-            based in Guadalajara, Mexico.{' '}
-            <strong style={{ color: 'var(--theme-fg)', fontWeight: 500 }}>
-              {PERSONAL_INFO.experienceTotal}
-            </strong>{' '}
-            of experience: Unity (C#) for mobile and PC, REST APIs in Go, enterprise applications with React, and cloud deployments on Google Cloud (GCP).
-          </p>
-        </div>
-
-        <div
-          style={{
-            position: 'relative',
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '40px',
-            marginTop: 'clamp(48px, 6vw, 88px)',
+            gap: '48px',
             alignItems: 'flex-start'
           }}
         >
-          {/* Skill Blocks */}
           <div
             style={{
               flex: '1 1 520px',
-              maxWidth: '640px',
+              maxWidth: '680px',
               display: 'flex',
               flexDirection: 'column',
-              gap: '16px'
+              gap: '28px'
             }}
           >
-            {/* Game Dev card - Accent */}
-            <div
+            <h2 id="about-title" style={sectionHeading}>About</h2>
+
+            <p
               style={{
-                background: 'var(--theme-accent)',
-                color: '#141414',
-                borderRadius: '24px',
-                padding: '20px 22px',
-                boxShadow: '0 8px 24px rgba(255,106,26,0.15)'
+                margin: 0,
+                fontSize: 'clamp(17px, 1.6vw, 20px)',
+                lineHeight: 1.5,
+                color: 'var(--theme-muted)'
               }}
             >
-              <h3 style={{ margin: '0 0 10px', fontSize: '16px', fontWeight: 600 }}>Game Dev</h3>
-              <p style={{ margin: 0, fontFamily: 'var(--font-mono)', fontSize: '12px', lineHeight: 1.8 }}>
-                {SKILL_CATEGORIES[0].skills}
-              </p>
-            </div>
+              I'm Rafael Flores, a{' '}
+              <span style={{ color: 'var(--theme-fg)' }}>
+                junior full-stack and game developer
+              </span>{' '}
+              based in Guadalajara, Mexico, with {PERSONAL_INFO.experienceTotal} of
+              experience: Unity (C#) for mobile and PC, REST APIs in Go, enterprise
+              applications with React, and cloud deployments on Google Cloud.
+            </p>
 
-            {/* Front-end */}
-            <div
-              style={{
-                border: '1px solid var(--theme-line)',
-                borderRadius: '24px',
-                padding: '20px 22px'
-              }}
-            >
-              <h3 style={{ margin: '0 0 10px', fontSize: '16px', fontWeight: 500 }}>Front-end</h3>
-              <p style={{ margin: 0, fontFamily: 'var(--font-mono)', fontSize: '12px', lineHeight: 1.8, color: 'var(--theme-fg)' }}>
-                {SKILL_CATEGORIES[1].skills}
-              </p>
-            </div>
-
-            {/* Back-end */}
-            <div
-              style={{
-                border: '1px solid var(--theme-line)',
-                borderRadius: '24px',
-                padding: '20px 22px'
-              }}
-            >
-              <h3 style={{ margin: '0 0 10px', fontSize: '16px', fontWeight: 500 }}>Back-end</h3>
-              <p style={{ margin: 0, fontFamily: 'var(--font-mono)', fontSize: '12px', lineHeight: 1.8, color: 'var(--theme-fg)' }}>
-                {SKILL_CATEGORIES[2].skills}
-              </p>
-            </div>
-
-            {/* DevOps & tools + quick circles */}
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '16px',
-                alignItems: 'stretch'
-              }}
-            >
-              <div
-                style={{
-                  flex: '1 1 260px',
-                  border: '1px solid var(--theme-line)',
-                  borderRadius: '24px',
-                  padding: '20px 22px'
-                }}
-              >
-                <h3 style={{ margin: '0 0 10px', fontSize: '16px', fontWeight: 500 }}>DevOps &amp; Tools</h3>
-                <p style={{ margin: 0, fontFamily: 'var(--font-mono)', fontSize: '12px', lineHeight: 1.8, color: 'var(--theme-fg)' }}>
-                  {SKILL_CATEGORIES[3].skills}
-                </p>
-              </div>
-
-              {/* Quick action badges */}
-              <div
-                style={{
-                  flex: '0 0 auto',
-                  display: 'flex',
-                  alignItems: 'center',
-                  padding: '0 8px'
-                }}
-              >
-                <a
-                  href={PERSONAL_INFO.links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View GitHub"
+            {/* Skills */}
+            <dl style={ruledList}>
+              {SKILL_CATEGORIES.map(cat => (
+                <div
+                  key={cat.id}
                   style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: '52px',
-                    height: '52px',
-                    borderRadius: '50%',
-                    border: '1px solid var(--theme-line)',
-                    color: 'var(--theme-fg)',
-                    transition: 'transform 0.2s ease, border-color 0.2s ease'
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.borderColor = 'var(--theme-accent)';
-                    e.currentTarget.style.transform = 'scale(1.05)';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.borderColor = 'var(--theme-line)';
-                    e.currentTarget.style.transform = 'scale(1)';
+                    ...ruledRow,
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '4px 24px'
                   }}
                 >
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" style={{ fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round' }}>
-                    <path d="M8 7l-5 5 5 5M16 7l5 5-5 5" />
-                  </svg>
-                </a>
-
-                <button
-                  type="button"
-                  aria-label="View projects"
-                  onClick={() => onNavigate('projects')}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: '52px',
-                    height: '52px',
-                    marginLeft: '-12px',
-                    borderRadius: '50%',
-                    background: 'var(--theme-inv)',
-                    color: 'var(--theme-inv-fg)',
-                    cursor: 'pointer',
-                    transition: 'transform 0.2s ease'
-                  }}
-                  onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.08)')}
-                  onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
-                >
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" style={{ fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round' }}>
-                    <path d="M7 17L17 7M9 7h8v8" />
-                  </svg>
-                </button>
-              </div>
-            </div>
+                  <dt
+                    style={{
+                      flex: '0 0 150px',
+                      fontSize: '15px',
+                      fontWeight: 600,
+                      color: cat.isAccent ? 'var(--theme-accent)' : 'var(--theme-fg)'
+                    }}
+                  >
+                    {cat.title}
+                  </dt>
+                  <dd
+                    style={{
+                      flex: '1 1 260px',
+                      margin: 0,
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '13px',
+                      lineHeight: 1.7,
+                      color: 'var(--theme-fg)'
+                    }}
+                  >
+                    {cat.skills}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
           {/* Photo Column */}
           <figure
             style={{
-              flex: '1 1 300px',
-              maxWidth: '400px',
+              flex: '1 1 280px',
+              maxWidth: '380px',
               margin: '0 0 0 auto'
             }}
           >
@@ -645,33 +319,21 @@ export default function HomeView({ onNavigate, onSelectProject }) {
                 aspectRatio: '4 / 5',
                 borderRadius: '28px',
                 border: '1px solid var(--theme-line)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                overflow: 'hidden',
-                position: 'relative'
+                overflow: 'hidden'
               }}
             >
               <img
                 src={PERSONAL_INFO.photoUrl}
                 alt="Rafael Flores"
                 style={{
+                  display: 'block',
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  filter: 'grayscale(100%) contrast(1.15)',
-                  transition: 'filter 0.3s ease, transform 0.3s ease'
+                  filter: 'grayscale(100%) contrast(1.15)'
                 }}
                 onError={(e) => {
                   e.target.style.display = 'none';
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.filter = 'grayscale(20%) contrast(1.05)';
-                  e.currentTarget.style.transform = 'scale(1.02)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.filter = 'grayscale(100%) contrast(1.15)';
-                  e.currentTarget.style.transform = 'scale(1)';
                 }}
               />
             </div>
@@ -684,79 +346,71 @@ export default function HomeView({ onNavigate, onSelectProject }) {
 
       {/* EDUCATION & CERTIFICATIONS SECTION */}
       <section
-        aria-label="Education &amp; Certifications"
         style={{
           position: 'relative',
-          padding: 'clamp(64px, 8vw, 112px) clamp(20px, 4vw, 56px) 0',
+          padding: `clamp(64px, 8vw, 112px) ${PAD_X} 0`,
           display: 'flex',
           flexWrap: 'wrap',
           gap: '48px 64px'
         }}
       >
         {/* Education */}
-        <div style={{ flex: '1 1 380px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <h2 style={{ margin: 0, fontFamily: 'var(--font-mono)', fontWeight: 500, fontSize: '13px', color: 'var(--theme-fg)' }}>
-            ... /Education ...
-          </h2>
+        <div style={{ flex: '1 1 380px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <h2 style={sectionHeading}>Education</h2>
 
-          {EDUCATION.map((edu, idx) => (
-            <div
-              key={idx}
-              style={{
-                border: '1px solid var(--theme-line)',
-                borderRadius: '24px',
-                padding: '24px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '6px'
-              }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
-                <span style={{ fontSize: '17px', fontWeight: 500 }}>{edu.degree}</span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--theme-muted)' }}>
-                  {edu.period}
-                </span>
-              </div>
-              <span style={{ fontSize: '14px', color: 'var(--theme-muted)' }}>{edu.institution}</span>
-            </div>
-          ))}
+          <ul style={ruledList}>
+            {EDUCATION.map((edu, idx) => (
+              <li
+                key={idx}
+                style={{
+                  ...ruledRow,
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  justifyContent: 'space-between',
+                  gap: '4px 16px'
+                }}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                  <span style={{ fontSize: '15px', fontWeight: 500 }}>{edu.degree}</span>
+                  <span style={{ fontSize: '13px', color: 'var(--theme-muted)' }}>{edu.institution}</span>
+                </div>
+                <span style={{ ...metaText, whiteSpace: 'nowrap' }}>{edu.period}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Certifications */}
-        <div style={{ flex: '1 1 380px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <h2 style={{ margin: 0, fontFamily: 'var(--font-mono)', fontWeight: 500, fontSize: '13px', color: 'var(--theme-fg)' }}>
-            ... /Certifications ...
-          </h2>
+        <div style={{ flex: '1 1 380px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <h2 style={sectionHeading}>Certifications</h2>
 
-          <ul style={{ listStyle: 'none', margin: 0, padding: 0, borderTop: '1px solid var(--theme-line)' }}>
+          <ul style={ruledList}>
             {CERTIFICATIONS.map((cert, idx) => (
               <li
                 key={idx}
                 style={{
+                  ...ruledRow,
                   display: 'flex',
                   flexWrap: 'wrap',
                   justifyContent: 'space-between',
                   alignItems: 'flex-start',
-                  gap: '6px 16px',
-                  padding: '16px 0',
-                  borderBottom: '1px solid var(--theme-line)'
+                  gap: '4px 16px'
                 }}
               >
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                   <span style={{ fontSize: '15px', fontWeight: 500 }}>{cert.name}</span>
+                  <span style={{ fontSize: '13px', color: 'var(--theme-muted)' }}>
+                    {cert.issuer}
+                    {cert.expires && `, expires ${cert.expires}`}
+                  </span>
                   {cert.credentialId && (
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--theme-muted)' }}>
-                      Credential ID: {cert.credentialId}
-                    </span>
-                  )}
-                  {cert.expires && (
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--theme-muted)' }}>
-                      Expires: {cert.expires}
+                    <span style={{ ...metaText, fontSize: '11px' }}>
+                      ID {cert.credentialId}
                     </span>
                   )}
                 </div>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--theme-muted)', whiteSpace: 'nowrap' }}>
-                  {cert.issuer} · {cert.issued || cert.year}
+                <span style={{ ...metaText, whiteSpace: 'nowrap' }}>
+                  {cert.issued || cert.year}
                 </span>
               </li>
             ))}
@@ -769,83 +423,28 @@ export default function HomeView({ onNavigate, onSelectProject }) {
         aria-labelledby="tools-title"
         style={{
           position: 'relative',
-          padding: 'clamp(64px, 8vw, 112px) clamp(20px, 4vw, 56px) 0'
+          padding: `clamp(64px, 8vw, 112px) ${PAD_X} 0`
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'baseline',
-            justifyContent: 'space-between',
-            gap: '12px 32px',
-            marginBottom: '24px'
-          }}
-        >
-          <h2
-            id="tools-title"
-            style={{
-              margin: 0,
-              fontFamily: 'var(--font-mono)',
-              fontWeight: 500,
-              fontSize: '13px',
-              color: 'var(--theme-fg)'
-            }}
-          >
-            ... /Tools ...
-          </h2>
-          <span style={{ fontSize: '13px', color: 'var(--theme-muted)' }}>
-            What I open{' '}
-            <strong style={{ color: 'var(--theme-fg)', fontWeight: 500 }}>
-              every day
-            </strong>
-          </span>
-        </div>
+        <h2 id="tools-title" style={{ ...sectionHeading, marginBottom: '24px' }}>
+          Tools I use daily
+        </h2>
 
         <ul
           style={{
-            listStyle: 'none',
-            margin: 0,
-            padding: 0,
+            ...ruledList,
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
-            gap: '16px'
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
+            columnGap: '40px'
           }}
         >
           {TOOLS.map((tool) => (
-            <li
-              key={tool.id}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '16px',
-                border: '1px solid var(--theme-line)',
-                borderRadius: '20px',
-                padding: '16px'
-              }}
-            >
-              <span
-                aria-hidden="true"
-                style={{
-                  flex: '0 0 auto',
-                  width: '52px',
-                  height: '52px',
-                  borderRadius: '14px',
-                  background: 'var(--theme-inv)',
-                  color: 'var(--theme-inv-fg)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '14px',
-                  fontWeight: 700
-                }}
-              >
-                {tool.badge}
-              </span>
-              <div>
-                <div style={{ fontSize: '15px', fontWeight: 500 }}>{tool.name}</div>
-                <div style={{ fontSize: '13px', color: 'var(--theme-muted)' }}>{tool.description}</div>
+            <li key={tool.id} style={ruledRow}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '15px', fontWeight: 700 }}>
+                {tool.name}
+              </div>
+              <div style={{ fontSize: '13px', color: 'var(--theme-muted)', marginTop: '2px' }}>
+                {tool.description}
               </div>
             </li>
           ))}

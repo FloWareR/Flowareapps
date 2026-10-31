@@ -42,7 +42,7 @@ export default function ExperienceList() {
             style={{
               display: 'flex',
               flexWrap: 'wrap',
-              alignItems: 'center',
+              alignItems: 'baseline',
               gap: '12px 32px',
               padding: '22px clamp(20px, 4vw, 56px)',
               borderBottom: '1px solid var(--theme-line)'
@@ -61,43 +61,16 @@ export default function ExperienceList() {
               </div>
             </div>
 
-            {/* Company & Initials */}
-            <div
-              style={{
-                flex: '1 1 240px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px'
-              }}
-            >
-              <span
-                aria-hidden="true"
+            {/* Company */}
+            <div style={{ flex: '1 1 240px' }}>
+              <div style={{ fontSize: '15px', fontWeight: 500 }}>{exp.company}</div>
+              <div
                 style={{
-                  flex: '0 0 auto',
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '12px',
-                  border: '1px solid var(--theme-line)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: 'var(--font-mono)',
                   fontSize: '12px',
-                  fontWeight: 700
+                  color: 'var(--theme-muted)'
                 }}
               >
-                {exp.initials}
-              </span>
-              <div>
-                <div style={{ fontSize: '15px', fontWeight: 500 }}>{exp.company}</div>
-                <div
-                  style={{
-                    fontSize: '12px',
-                    color: 'var(--theme-muted)'
-                  }}
-                >
-                  {exp.location}
-                </div>
+                {exp.location}
               </div>
             </div>
 

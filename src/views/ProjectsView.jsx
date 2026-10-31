@@ -13,7 +13,7 @@ export default function ProjectsView({ onNavigate, onSelectProject }) {
   });
 
   return (
-    <div className="animate-fade-in">
+    <div>
       <ConcentricRings position="top-right" />
 
       {/* HEADER SECTION */}
@@ -34,10 +34,7 @@ export default function ProjectsView({ onNavigate, onSelectProject }) {
             color: 'var(--theme-muted)',
             fontSize: '13px',
             cursor: 'pointer',
-            transition: 'color 0.2s ease'
           }}
-          onMouseEnter={e => (e.currentTarget.style.color = 'var(--theme-fg)')}
-          onMouseLeave={e => (e.currentTarget.style.color = 'var(--theme-muted)')}
         >
           <svg
             viewBox="0 0 24 24"
@@ -145,7 +142,6 @@ export default function ProjectsView({ onNavigate, onSelectProject }) {
                     fontSize: '14px',
                     fontWeight: isSelected ? 500 : 400,
                     cursor: 'pointer',
-                    transition: 'all 0.2s ease'
                   }}
                 >
                   {f.label}
@@ -202,12 +198,8 @@ export default function ProjectsView({ onNavigate, onSelectProject }) {
                   flexDirection: 'column',
                   gap: '16px',
                   color: 'var(--theme-fg)',
-                  textDecoration: 'none',
                   cursor: 'pointer',
-                  transition: 'transform 0.2s ease'
                 }}
-                onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-4px)')}
-                onMouseLeave={e => (e.currentTarget.style.transform = 'translateY(0)')}
               >
                 {/* Visual Thumbnail */}
                 <div
@@ -288,7 +280,6 @@ export default function ProjectsView({ onNavigate, onSelectProject }) {
                       borderRadius: '50%',
                       border: '1px solid var(--theme-line)',
                       color: 'var(--theme-fg)',
-                      transition: 'border-color 0.2s ease, background-color 0.2s ease'
                     }}
                   >
                     <svg

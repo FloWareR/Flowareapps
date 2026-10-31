@@ -77,7 +77,6 @@ function PortfolioApp() {
         color: 'var(--theme-fg)',
         fontSize: '16px',
         lineHeight: 1.5,
-        transition: 'background-color 0.25s ease'
       }}
     >
       <div
@@ -89,7 +88,6 @@ function PortfolioApp() {
           borderRadius: 'clamp(20px, 3vw, 40px)',
           position: 'relative',
           overflow: 'hidden',
-          transition: 'background-color 0.25s ease, border-color 0.25s ease'
         }}
       >
         <Header currentView={currentView} onNavigate={handleNavigate} />
