@@ -86,7 +86,7 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
           </div>
 
           <div style={{ padding: '20px 20px 20px 0' }}>
-            <dt style={{ fontSize: '12px', color: 'var(--theme-muted)' }}>Duration</dt>
+            <dt style={{ fontSize: '12px', color: 'var(--theme-muted)' }}>Timeline</dt>
             <dd style={{ margin: '4px 0 0', fontFamily: 'var(--font-mono)', fontSize: '14px', color: 'var(--theme-fg)' }}>
               {details.duration || '3 months'}
             </dd>
@@ -480,7 +480,7 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
       {/* TECH STACK SECTION */}
       {details.stackTags && details.stackTags.length > 0 && (
         <section
-          aria-label="Tech Stack"
+          aria-label="Tech stack"
           style={{
             padding: 'clamp(56px, 7vw, 88px) clamp(20px, 4vw, 56px) 0',
             display: 'flex',
@@ -500,7 +500,7 @@ export default function ProjectDetailView({ project, onNavigate, onSelectProject
               color: 'var(--theme-fg)'
             }}
           >
-            Tech Stack
+            Tech stack
           </h2>
 
           <ul

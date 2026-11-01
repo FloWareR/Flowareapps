@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import { PROJECTS } from '../data/portfolioData';
 
 export default function FeaturedCarousel({ onSelectProject, onShowAllProjects }) {
@@ -7,14 +7,38 @@ export default function FeaturedCarousel({ onSelectProject, onShowAllProjects })
     : PROJECTS;
   const n = featuredProjects.length;
   const [active, setActive] = useState(0);
+  const cardEls = useRef(new Map());
+  const lastLefts = useRef(null);
 
-  const prev = () => {
-    setActive(curr => (curr - 1 + n) % n);
+  // FLIP: remember where each card was, then slide it from there to its new slot
+  const step = delta => {
+    lastLefts.current = new Map(
+      [...cardEls.current].map(([id, el]) => [id, el.getBoundingClientRect().left])
+    );
+    setActive(curr => (curr + delta + n) % n);
   };
+  const prev = () => step(-1);
+  const next = () => step(1);
 
-  const next = () => {
-    setActive(curr => (curr + 1) % n);
-  };
+  useLayoutEffect(() => {
+    const from = lastLefts.current;
+    lastLefts.current = null;
+    if (!from || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    cardEls.current.forEach((el, id) => {
+      el.getAnimations().forEach(a => a.cancel());
+      if (!from.has(id)) {
+        el.animate([{ opacity: 0 }, {}], { duration: 300, easing: 'ease-out' });
+        return;
+      }
+      const dx = from.get(id) - el.getBoundingClientRect().left;
+      if (dx) {
+        el.animate([{ transform: `translateX(${dx}px)` }, { transform: 'none' }], {
+          duration: 450,
+          easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
+        });
+      }
+    });
+  }, [active]);
 
   // 3-card sliding view: [prev, current, next]
   const order = [(active - 1 + n) % n, active, (active + 1) % n];
@@ -46,7 +70,8 @@ export default function FeaturedCarousel({ onSelectProject, onShowAllProjects })
 
           return (
             <article
-              key={`${item.id}-${k}`}
+              key={item.id}
+              ref={el => (el ? cardEls.current.set(item.id, el) : cardEls.current.delete(item.id))}
               className="carousel-card"
               onClick={() => {
                 if (!isCenter) {
@@ -66,7 +91,7 @@ export default function FeaturedCarousel({ onSelectProject, onShowAllProjects })
                 {item.image && (
                   <img
                     src={item.image}
-                    alt={item.title}
+                    alt=""
                     style={{
                       position: 'absolute',
                       top: 0,
@@ -137,6 +162,7 @@ export default function FeaturedCarousel({ onSelectProject, onShowAllProjects })
                 >
                   <button
                     type="button"
+                    aria-label={`See project: ${item.title}`}
                     tabIndex={isCenter ? 0 : -1}
                     onClick={e => {
                       e.stopPropagation();

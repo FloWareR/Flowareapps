@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { flushSync } from 'react-dom';
 import { useTheme } from '../context/ThemeContext';
 
 export default function Header({ currentView, onNavigate }) {
   const { isDark, toggleTheme } = useTheme();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleNavClick = (e, targetView, hash) => {
     e.preventDefault();
@@ -15,11 +15,11 @@ export default function Header({ currentView, onNavigate }) {
         el.scrollIntoView({ behavior: 'smooth' });
       }
     }
-    setMobileMenuOpen(false);
   };
 
   return (
     <header
+      className="site-header"
       style={{
         position: 'sticky',
         top: 0,
@@ -29,7 +29,6 @@ export default function Header({ currentView, onNavigate }) {
         alignItems: 'center',
         justifyContent: 'space-between',
         gap: '16px 32px',
-        padding: '28px clamp(20px, 4vw, 56px) 0',
         zIndex: 10
       }}
     >
@@ -73,13 +72,14 @@ export default function Header({ currentView, onNavigate }) {
           >
             <path d="M19 12H5M11 6l-6 6 6 6" />
           </svg>
-          All Projects
+          All projects
         </button>
       )}
 
       {/* Main Nav */}
       <nav
         aria-label="Main"
+        className="site-nav"
         style={{
           display: 'flex',
           flexWrap: 'wrap',
@@ -139,10 +139,14 @@ export default function Header({ currentView, onNavigate }) {
       </nav>
 
       {/* Controls: Theme Toggle */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div className="site-header-controls" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <button
           type="button"
-          onClick={toggleTheme}
+          onClick={() =>
+            document.startViewTransition
+              ? document.startViewTransition(() => flushSync(toggleTheme))
+              : toggleTheme()
+          }
           aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
           title={isDark ? 'Light theme' : 'Dark theme'}
           style={{

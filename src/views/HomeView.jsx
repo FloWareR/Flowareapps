@@ -8,8 +8,7 @@ import {
   PERSONAL_INFO,
   SKILL_CATEGORIES,
   EDUCATION,
-  CERTIFICATIONS,
-  TOOLS
+  CERTIFICATIONS
 } from '../data/portfolioData';
 
 const PAD_X = 'clamp(20px, 4vw, 56px)';
@@ -41,13 +40,6 @@ const metaText = {
   fontSize: '12px',
   color: 'var(--theme-muted)'
 };
-
-const SOCIAL_LINKS = [
-  { label: 'GitHub', href: PERSONAL_INFO.links.github },
-  { label: 'LinkedIn', href: PERSONAL_INFO.links.linkedin },
-  { label: 'itch.io', href: PERSONAL_INFO.links.itch },
-  { label: 'Email', href: `mailto:${PERSONAL_INFO.email}` }
-];
 
 export default function HomeView({ onNavigate, onSelectProject }) {
   const scrollToSection = (id) => {
@@ -87,128 +79,79 @@ export default function HomeView({ onNavigate, onSelectProject }) {
             color: 'var(--theme-fg)'
           }}
         >
-          <div>Game Dev</div>
-          <div style={{ textAlign: 'right' }}>&amp; Fullstack</div>
+          <div className="hero-line">Game Dev</div>
+          <div className="hero-line hero-line--right">&amp; Fullstack</div>
         </div>
 
-        {/* Bio, actions & links */}
+        {/* Bio & actions */}
         <div
           style={{
+            maxWidth: '540px',
             display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'flex-end',
-            justifyContent: 'space-between',
-            gap: '28px 40px',
+            flexDirection: 'column',
+            gap: '24px',
             marginTop: 'clamp(24px, 3vw, 40px)'
           }}
         >
-          <div
-            style={{
-              flex: '1 1 320px',
-              maxWidth: '540px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '24px'
-            }}
-          >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              {PERSONAL_INFO.bio.split('\n\n').map((paragraph, idx) => (
-                <p
-                  key={idx}
-                  style={{
-                    margin: 0,
-                    color: idx === 0 ? 'var(--theme-fg)' : 'var(--theme-muted)',
-                    fontSize: idx === 0 ? '17px' : '15px',
-                    lineHeight: 1.55
-                  }}
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+          <p style={{ margin: 0, color: 'var(--theme-fg)', fontSize: '17px', lineHeight: 1.55 }}>
+            {PERSONAL_INFO.bio}
+          </p>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-              <a
-                href={PERSONAL_INFO.resumeUrl}
-                download="Rafael_Flores_CV.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+            <a
+              href={PERSONAL_INFO.resumeUrl}
+              download="Rafael_Flores_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                height: '48px',
+                padding: '0 22px',
+                borderRadius: '999px',
+                background: 'var(--theme-accent)',
+                color: '#141414',
+                fontSize: '14px',
+                fontWeight: 600
+              }}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                aria-hidden="true"
                 style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  height: '48px',
-                  padding: '0 22px',
-                  borderRadius: '999px',
-                  background: 'var(--theme-accent)',
-                  color: '#141414',
-                  fontSize: '14px',
-                  fontWeight: 600
+                  fill: 'none',
+                  stroke: 'currentColor',
+                  strokeWidth: 1.8,
+                  strokeLinecap: 'round',
+                  strokeLinejoin: 'round'
                 }}
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  aria-hidden="true"
-                  style={{
-                    fill: 'none',
-                    stroke: 'currentColor',
-                    strokeWidth: 1.8,
-                    strokeLinecap: 'round',
-                    strokeLinejoin: 'round'
-                  }}
-                >
-                  <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
-                </svg>
-                Download CV
-              </a>
+                <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
+              </svg>
+              Download CV (PDF)
+            </a>
 
-              <button
-                type="button"
-                onClick={() => scrollToSection('projects')}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  height: '48px',
-                  padding: '0 22px',
-                  borderRadius: '999px',
-                  border: '1px solid var(--theme-line)',
-                  color: 'var(--theme-fg)',
-                  fontSize: '14px',
-                  fontWeight: 500
-                }}
-              >
-                See projects
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={() => scrollToSection('projects')}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                height: '48px',
+                padding: '0 22px',
+                borderRadius: '999px',
+                border: '1px solid var(--theme-line)',
+                color: 'var(--theme-fg)',
+                fontSize: '14px',
+                fontWeight: 500
+              }}
+            >
+              See projects
+            </button>
           </div>
-
-          <ul
-            aria-label="Social links"
-            style={{
-              listStyle: 'none',
-              margin: 0,
-              padding: 0,
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '8px 24px',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '14px'
-            }}
-          >
-            {SOCIAL_LINKS.map(link => (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  {...(link.href.startsWith('mailto:') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
-                  style={{ color: 'var(--theme-fg)' }}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
@@ -416,39 +359,6 @@ export default function HomeView({ onNavigate, onSelectProject }) {
             ))}
           </ul>
         </div>
-      </section>
-
-      {/* TOOLS SECTION */}
-      <section
-        aria-labelledby="tools-title"
-        style={{
-          position: 'relative',
-          padding: `clamp(64px, 8vw, 112px) ${PAD_X} 0`
-        }}
-      >
-        <h2 id="tools-title" style={{ ...sectionHeading, marginBottom: '24px' }}>
-          Tools I use daily
-        </h2>
-
-        <ul
-          style={{
-            ...ruledList,
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
-            columnGap: '40px'
-          }}
-        >
-          {TOOLS.map((tool) => (
-            <li key={tool.id} style={ruledRow}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '15px', fontWeight: 700 }}>
-                {tool.name}
-              </div>
-              <div style={{ fontSize: '13px', color: 'var(--theme-muted)', marginTop: '2px' }}>
-                {tool.description}
-              </div>
-            </li>
-          ))}
-        </ul>
       </section>
 
       {/* CONTACT SECTION */}

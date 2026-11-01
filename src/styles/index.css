@@ -92,6 +92,10 @@ button {
   box-sizing: border-box;
   height: 380px;
   min-height: 380px;
+  transition:
+    flex-basis 450ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 300ms ease-out,
+    background-color 300ms ease-out;
 }
 
 .carousel-card-media {
@@ -154,6 +158,65 @@ button {
 }
 
 
+/* Header: on phones, name + theme toggle share row one, nav spans row two, so the sticky bar stays short */
+.site-header {
+  padding: 28px clamp(20px, 4vw, 56px) 0;
+}
+
+@media (max-width: 680px) {
+  .site-header {
+    padding-top: 16px;
+    row-gap: 0;
+  }
+
+  .site-header-controls {
+    order: 1;
+  }
+
+  .site-nav {
+    order: 2;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* Hero: the two lines wipe in from opposite sides, once, on load */
+.hero-line {
+  width: fit-content;
+  animation: hero-wipe-left 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-line--right {
+  margin-left: auto;
+  animation-name: hero-wipe-right;
+  animation-delay: 140ms;
+}
+
+@keyframes hero-wipe-left {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0); }
+}
+
+@keyframes hero-wipe-right {
+  from { clip-path: inset(0 0 0 100%); }
+  to { clip-path: inset(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-line,
+  .hero-line--right {
+    animation: fade-in 300ms ease-out both;
+  }
+
+  .carousel-card {
+    transition: opacity 300ms ease-out, background-color 300ms ease-out;
+  }
+}
+
 /* Plain, instant hover feedback: underline, no motion */
 a:hover,
 button:hover {
@@ -166,7 +229,18 @@ button:hover {
   outline-offset: 3px;
 }
 
+::selection {
+  background: var(--theme-accent);
+  color: #121212;
+}
+
 /* Custom Scrollbar */
+/* Firefox only: in Chromium, scrollbar-color would override the ::-webkit-scrollbar styles below */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-color: var(--theme-line) var(--theme-page);
+  }
+}
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

@@ -204,8 +204,6 @@ export default function ProjectsView({ onNavigate, onSelectProject }) {
                 {/* Visual Thumbnail */}
                 <div
                   className="pattern-striped"
-                  role="img"
-                  aria-label={`Image of ${p.title}`}
                   style={{
                     position: 'relative',
                     aspectRatio: '4 / 3',
@@ -223,7 +221,7 @@ export default function ProjectsView({ onNavigate, onSelectProject }) {
                   {p.image && (
                     <img
                       src={p.image}
-                      alt={p.title}
+                      alt=""
                       style={{
                         position: 'absolute',
                         top: 0,

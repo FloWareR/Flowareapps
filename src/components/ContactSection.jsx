@@ -88,7 +88,7 @@ export default function ContactSection({ style = {} }) {
                 fontWeight: 600,
               }}
             >
-              Get in touch
+              Email me
             </a>
 
           </div>
@@ -135,6 +135,7 @@ export default function ContactSection({ style = {} }) {
               <button
                 type="button"
                 onClick={handleCopyEmail}
+                aria-label="Copy email address"
                 style={{
                   fontSize: '12px',
                   fontFamily: 'var(--font-mono)',
@@ -147,6 +148,9 @@ export default function ContactSection({ style = {} }) {
               >
                 {copied ? 'Copied' : 'Copy'}
               </button>
+              <span role="status" className="sr-only">
+                {copied ? 'Email address copied' : ''}
+              </span>
             </div>
           </li>
 

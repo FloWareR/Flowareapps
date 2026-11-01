@@ -3,7 +3,7 @@ export const PERSONAL_INFO = {
   shortName: 'Rafael Flores',
   title: 'Game Dev & Fullstack',
   heroPreTitle: 'Rafael Flores Galvan · Fullstack & Game Developer (React · Go · Unity)',
-  bio: 'I make games and web apps. Most days that means gameplay code in Unity, backend services in Go, or front ends in React.\n\nI’ve shipped 2D and 3D games for PC and mobile, built REST APIs and microservices, and deployed them on Google Cloud. I also work in C, C#, Godot, and JavaScript.',
+  bio: 'I make games and web apps. Most days that means gameplay code in Unity, backend services in Go, or front ends in React.',
   aboutBio: "I'm Rafael, a junior fullstack and game developer in Guadalajara, Mexico. I've built Unity (C#) games for mobile and PC, REST APIs in Go, and enterprise apps with React, TypeScript, and Java Spring Boot running on Google Cloud.",
   experienceTotal: '2 years',
   email: 'rfloresg@flowareapps.com',
@@ -132,79 +132,6 @@ export const CERTIFICATIONS = [
     year: '2025',
     issued: 'Aug 2025',
     credentialId: '6GLPXSD369W3'
-  }
-];
-
-export const TOOLS = [
-  {
-    id: 'unity',
-    badge: 'Un',
-    name: 'Unity (3D / 2D)',
-    description: 'Main engine for mobile and PC games',
-    isAccent: false
-  },
-  {
-    id: 'csharp',
-    badge: 'C#',
-    name: 'C#',
-    description: 'Gameplay code, mods, and tools',
-    isAccent: false
-  },
-  {
-    id: 'go',
-    badge: 'Go',
-    name: 'Go (Golang)',
-    description: 'REST APIs and microservices',
-    isAccent: false
-  },
-  {
-    id: 'react',
-    badge: 'Re',
-    name: 'React',
-    description: 'Websites and web app front ends',
-    isAccent: false
-  },
-  {
-    id: 'javascript',
-    badge: 'JS',
-    name: 'JavaScript',
-    description: 'Front end and Node.js back end',
-    isAccent: false
-  },
-  {
-    id: 'sdl3',
-    badge: 'SD',
-    name: 'SDL3',
-    description: 'Low-level graphics and input in C',
-    isAccent: false
-  },
-  {
-    id: 'linux',
-    badge: 'Lx',
-    name: 'Linux',
-    description: 'My daily OS for development',
-    isAccent: false
-  },
-  {
-    id: 'docker',
-    badge: 'Dk',
-    name: 'Docker',
-    description: 'Containers for APIs and databases',
-    isAccent: false
-  },
-  {
-    id: 'git',
-    badge: 'Gt',
-    name: 'Git',
-    description: 'Version control, solo and in teams',
-    isAccent: false
-  },
-  {
-    id: 'llm',
-    badge: 'AI',
-    name: 'LLMs & AI Agents',
-    description: 'Coding with Antigravity, Codex, and Claude',
-    isAccent: false
   }
 ];
 
@@ -601,7 +528,7 @@ export const PROJECTS = [
 
 export const PROJECT_FILTERS = [
   { id: 'all', label: 'All' },
-  { id: 'game', label: 'Video Game Demos' },
+  { id: 'game', label: 'Video Games' },
   { id: 'web', label: 'Web' },
   { id: 'jam', label: 'Game Jams' }
 ];

@@ -34,6 +34,8 @@ export default function Footer({ onScrollTop }) {
         style={{
           color: 'var(--theme-fg)',
           cursor: 'pointer',
+          padding: '12px 0',
+          margin: '-12px 0',
         }}
       >
         Back to top ↑

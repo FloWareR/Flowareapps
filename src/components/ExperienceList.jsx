@@ -1,5 +1,5 @@
 import React from 'react';
-import { EXPERIENCE, PERSONAL_INFO } from '../data/portfolioData';
+import { EXPERIENCE } from '../data/portfolioData';
 
 export default function ExperienceList() {
   return (
@@ -36,100 +36,99 @@ export default function ExperienceList() {
           borderTop: '1px solid var(--theme-line)'
         }}
       >
-        {EXPERIENCE.map((exp) => (
+        {EXPERIENCE.map((exp, idx) => (
           <li
             key={exp.id}
             style={{
               display: 'flex',
               flexWrap: 'wrap',
               alignItems: 'baseline',
-              gap: '12px 32px',
-              padding: '22px clamp(20px, 4vw, 56px)',
+              gap: '16px 48px',
+              padding: 'clamp(28px, 3.4vw, 44px) clamp(20px, 4vw, 56px)',
               borderBottom: '1px solid var(--theme-line)'
             }}
           >
-            {/* Period */}
-            <div style={{ flex: '0 0 140px' }}>
-              <div style={{ fontSize: '15px', fontWeight: 500 }}>{exp.period}</div>
+            {/* Company carries the row; dates and place sit under it */}
+            <div style={{ flex: '1 1 320px' }}>
               <div
                 style={{
-                  fontSize: '11px',
-                  color: 'var(--theme-muted)'
+                  fontFamily: 'var(--font-mono)',
+                  fontWeight: 700,
+                  fontSize: 'clamp(28px, 3.6vw, 52px)',
+                  lineHeight: 1.05,
+                  letterSpacing: '-0.02em'
                 }}
               >
-                {exp.duration}
+                {exp.company}
               </div>
-            </div>
-
-            {/* Company */}
-            <div style={{ flex: '1 1 240px' }}>
-              <div style={{ fontSize: '15px', fontWeight: 500 }}>{exp.company}</div>
               <div
                 style={{
-                  fontSize: '12px',
+                  marginTop: '10px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '13px',
                   color: 'var(--theme-muted)'
                 }}
               >
+                {/* Accent dot marks the current role; orange text would fail contrast on the light theme */}
+                {idx === 0 && (
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      display: 'inline-block',
+                      width: '8px',
+                      height: '8px',
+                      marginRight: '8px',
+                      borderRadius: '50%',
+                      background: 'var(--theme-accent)'
+                    }}
+                  />
+                )}
+                <span style={{ color: 'var(--theme-fg)', fontWeight: 500 }}>
+                  {exp.period}
+                </span>
+                {' · '}
+                {exp.duration}
+                <br />
                 {exp.location}
               </div>
             </div>
 
             {/* Role & Description */}
-            <div style={{ flex: '1 1 380px' }}>
+            <div style={{ flex: '1 1 420px', maxWidth: '62ch' }}>
               <div
                 style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '14px',
+                  fontSize: '15px',
                   fontWeight: 500
                 }}
               >
-                {exp.role}{' '}
-                <span
-                  style={{
-                    color: 'var(--theme-muted)'
-                  }}
-                >
-                  |
-                </span>{' '}
-                {exp.tech}
+                {exp.role}
               </div>
               <div
                 style={{
+                  fontFamily: 'var(--font-mono)',
                   fontSize: '13px',
                   color: 'var(--theme-muted)',
-                  marginTop: '4px',
-                  lineHeight: 1.45
+                  marginTop: '2px'
+                }}
+              >
+                {exp.tech}
+              </div>
+              <p
+                style={{
+                  margin: '12px 0 0',
+                  fontSize: '15px',
+                  lineHeight: 1.55,
+                  color: 'var(--theme-muted)'
                 }}
               >
                 {exp.description}
-              </div>
+              </p>
             </div>
           </li>
         ))}
       </ol>
 
-      <p
-        style={{
-          margin: 0,
-          padding: '24px clamp(20px, 4vw, 56px) 0',
-          textAlign: 'right',
-          fontSize: '14px',
-          color: 'var(--theme-muted)'
-        }}
-      >
-        Total experience
-        <br />
-        <em
-          style={{
-            color: 'var(--theme-fg)',
-            fontSize: '16px',
-            fontStyle: 'normal',
-            fontWeight: 600
-          }}
-        >
-          {PERSONAL_INFO.experienceTotal}
-        </em>
-      </p>
     </section>
   );
 }
